@@ -10,7 +10,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
+            --bg: #f8f0df;
+            --bg2: #f2e8d2;
+            --bg3: #e9dcc0;
+            --panel: rgba(255, 255, 255, 0.58);
+            --line: rgba(91, 67, 38, 0.2);
+            --text: #2f2418;
+            --muted: #6e5a43;
+            --c1: #b38a48;
+            --c2: #c79b56;
+            --c3: #8a6d3b;
+            --btn-text: #2f2418;
+            --input-bg: rgba(255, 255, 255, 0.65);
+            --glow-1: rgba(179, 138, 72, 0.32);
+            --glow-2: rgba(138, 109, 59, 0.2);
+            --grid-line: rgba(91, 67, 38, 0.14);
+            --pulse-line: rgba(199, 155, 86, 0.5);
+            --panel-soft: rgba(255, 255, 255, 0.45);
+        }
+
+        [data-theme="dark"] {
             --bg: #090b10;
+            --bg2: #0b1020;
+            --bg3: #07080d;
             --panel: rgba(255, 255, 255, 0.05);
             --line: rgba(255, 255, 255, 0.14);
             --text: #f3f6ff;
@@ -18,6 +40,13 @@
             --c1: #f4a626;
             --c2: #f97316;
             --c3: #22d3ee;
+            --btn-text: #0f172a;
+            --input-bg: rgba(255, 255, 255, 0.06);
+            --glow-1: rgba(244, 166, 38, 0.2);
+            --glow-2: rgba(34, 211, 238, 0.12);
+            --grid-line: rgba(255, 255, 255, 0.06);
+            --pulse-line: rgba(249, 115, 22, 0.5);
+            --panel-soft: rgba(255, 255, 255, 0.05);
         }
 
         * {
@@ -28,11 +57,12 @@
             margin: 0;
             color: var(--text);
             background:
-                radial-gradient(50rem 20rem at 10% -10%, rgba(244, 166, 38, 0.2), transparent 65%),
-                radial-gradient(42rem 24rem at 90% 0%, rgba(34, 211, 238, 0.12), transparent 70%),
-                linear-gradient(180deg, #0b1020 0%, #080b12 45%, #07080d 100%);
+                radial-gradient(50rem 20rem at 10% -10%, var(--glow-1), transparent 65%),
+                radial-gradient(42rem 24rem at 90% 0%, var(--glow-2), transparent 70%),
+                linear-gradient(180deg, var(--bg2) 0%, var(--bg) 45%, var(--bg3) 100%);
             font-family: "Manrope", sans-serif;
             min-height: 100vh;
+            transition: background 0.35s ease, color 0.35s ease;
         }
 
         .font-display {
@@ -45,6 +75,23 @@
             backdrop-filter: blur(10px);
         }
 
+        .text-muted {
+            color: var(--muted);
+        }
+
+        .text-main {
+            color: var(--text);
+        }
+
+        .accent-bg {
+            background: linear-gradient(95deg, var(--c1), var(--c2));
+            color: var(--btn-text);
+        }
+
+        .input-shell {
+            background: var(--input-bg);
+        }
+
         .gradient-text {
             background: linear-gradient(95deg, var(--c1), var(--c2), var(--c3));
             -webkit-background-clip: text;
@@ -54,8 +101,8 @@
 
         .hero-grid {
             background-image:
-                linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+                linear-gradient(var(--grid-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
             background-size: 30px 30px;
             mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
             pointer-events: none;
@@ -69,7 +116,7 @@
             content: "";
             position: absolute;
             inset: -6px;
-            border: 1px solid rgba(249, 115, 22, 0.5);
+            border: 1px solid var(--pulse-line);
             border-radius: 999px;
             animation: ping 2.2s infinite;
         }
@@ -102,32 +149,35 @@
 
     <nav class="max-w-7xl mx-auto px-6 py-6 relative z-10">
         <div class="glass rounded-2xl px-5 py-4 flex items-center justify-between">
-            <div class="font-display text-2xl font-bold tracking-tight uppercase">RAKE <span class="text-orange-400">ML</span></div>
-            <div class="hidden md:flex items-center gap-8 text-sm text-slate-300">
-                <a href="#" class="hover:text-white transition">Platform</a>
-                <a href="#" class="hover:text-white transition">For Insurers</a>
-                <a href="#" class="hover:text-white transition">For Contractors</a>
-                <a href="#" class="hover:text-white transition">Research</a>
+            <div class="font-display text-2xl font-bold tracking-tight uppercase text-main">RAKE <span class="gradient-text">ML</span></div>
+            <div class="hidden md:flex items-center gap-8 text-sm text-muted">
+                <a href="#platform" class="hover:opacity-80 transition">Platform</a>
+                <a href="#audiences" class="hover:opacity-80 transition">Use Cases</a>
+                <a href="#how" class="hover:opacity-80 transition">How It Works</a>
+                <a href="#contact" class="hover:opacity-80 transition">Contact</a>
             </div>
-            <button class="font-display text-sm font-bold bg-orange-500 hover:bg-orange-400 text-slate-950 px-5 py-2.5 rounded-full transition">Request Demo</button>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="font-display text-xs sm:text-sm font-bold px-4 py-2 rounded-full glass text-main transition" type="button">Theme: Champagne</button>
+                <a href="#contact" class="font-display text-sm font-bold accent-bg px-5 py-2.5 rounded-full transition">Request Demo</a>
+            </div>
         </div>
     </nav>
 
     <header class="max-w-7xl mx-auto px-6 pt-12 pb-20 relative z-10">
         <div class="grid lg:grid-cols-12 gap-10 items-center">
             <div class="lg:col-span-7 text-center lg:text-left">
-                <p class="fade-up font-display tracking-[0.2em] uppercase text-xs text-slate-300 mb-6">
+                <p class="fade-up font-display tracking-[0.2em] uppercase text-xs text-muted mb-6">
                     Built for risk teams, contractors, and operators
                 </p>
                 <h1 class="fade-up d2 font-display text-5xl sm:text-6xl lg:text-7xl leading-[1.04] font-bold mb-6">
                     Predict the <span class="gradient-text">unpredictable</span> before it costs you.
                 </h1>
-                <p class="fade-up d3 text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 mb-10">
+                <p class="fade-up d3 text-lg text-muted max-w-2xl mx-auto lg:mx-0 mb-10">
                     RAKE ML models roof failure risk using hyperlocal weather, material decay, and historical claims to deliver decision-ready forecasts at address-level precision.
                 </p>
                 <div class="fade-up d4 flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto lg:mx-0">
-                    <input type="text" placeholder="Enter property address..." class="glass w-full px-5 py-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 placeholder:text-slate-400">
-                    <button class="font-display font-bold px-8 py-4 rounded-xl bg-white text-slate-950 hover:bg-orange-400 transition">Analyze Now</button>
+                    <input type="text" placeholder="Enter property address..." class="input-shell glass w-full px-5 py-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 placeholder:text-muted">
+                    <button class="font-display font-bold px-8 py-4 rounded-xl accent-bg transition">Analyze Now</button>
                 </div>
             </div>
 
@@ -135,26 +185,26 @@
                 <div class="glass rounded-3xl p-6 sm:p-8 fade-up d3">
                     <div class="flex items-center justify-between mb-7">
                         <h2 class="font-display text-xl font-semibold">Live Risk Snapshot</h2>
-                        <div class="flex items-center gap-2 text-sm text-emerald-300">
-                            <span class="pulse-dot w-2.5 h-2.5 bg-emerald-300 rounded-full"></span>
+                        <div class="flex items-center gap-2 text-sm text-main">
+                            <span class="pulse-dot w-2.5 h-2.5 rounded-full" style="background: var(--c2);"></span>
                             Streaming
                         </div>
                     </div>
                     <div class="space-y-4">
-                        <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-                            <p class="text-xs text-slate-400 uppercase tracking-widest mb-2">Property Risk Index</p>
+                        <div class="rounded-2xl border p-4" style="border-color: var(--line); background: var(--panel-soft);">
+                            <p class="text-xs text-muted uppercase tracking-widest mb-2">Property Risk Index</p>
                             <div class="flex items-end justify-between">
-                                <p class="font-display text-4xl font-bold text-orange-300">87</p>
-                                <p class="text-xs text-orange-200">+12 vs county baseline</p>
+                                <p class="font-display text-4xl font-bold gradient-text">87</p>
+                                <p class="text-xs text-muted">+12 vs county baseline</p>
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-3 text-sm">
-                            <div class="rounded-xl border border-white/10 bg-white/5 p-4">
-                                <p class="text-slate-400 mb-1">Failure Window</p>
+                            <div class="rounded-xl border p-4" style="border-color: var(--line); background: var(--panel-soft);">
+                                <p class="text-muted mb-1">Failure Window</p>
                                 <p class="font-display text-xl font-semibold">6-14 mo</p>
                             </div>
-                            <div class="rounded-xl border border-white/10 bg-white/5 p-4">
-                                <p class="text-slate-400 mb-1">Storm Exposure</p>
+                            <div class="rounded-xl border p-4" style="border-color: var(--line); background: var(--panel-soft);">
+                                <p class="text-muted mb-1">Storm Exposure</p>
                                 <p class="font-display text-xl font-semibold">High</p>
                             </div>
                         </div>
@@ -165,37 +215,108 @@
     </header>
 
     <main class="max-w-7xl mx-auto px-6 pb-20 relative z-10">
-        <section class="grid md:grid-cols-3 gap-6 mb-20">
+        <section id="platform" class="glass rounded-3xl p-8 sm:p-10 mb-12">
+            <p class="text-xs tracking-[0.24em] text-muted uppercase mb-3">Platform Overview</p>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold mb-4">Address-level predictions for the built world.</h2>
+            <p class="text-muted max-w-4xl mb-8">RAKE ML combines atmospheric data, roof system age curves, and loss history to produce actionable risk scores, renewal prioritization lists, and route-ready opportunity maps. Every output is designed for field teams and underwriting workflows, not just analysts.</p>
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="glass rounded-2xl p-5">
+                    <p class="font-display font-semibold mb-1">Risk API</p>
+                    <p class="text-sm text-muted">Real-time property scores for policy and prospect systems.</p>
+                </div>
+                <div class="glass rounded-2xl p-5">
+                    <p class="font-display font-semibold mb-1">Portfolio Console</p>
+                    <p class="text-sm text-muted">Map view, filtering, and alerting for high-risk properties.</p>
+                </div>
+                <div class="glass rounded-2xl p-5">
+                    <p class="font-display font-semibold mb-1">Forecast Reports</p>
+                    <p class="text-sm text-muted">Weekly risk summaries with explainability at each address.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="audiences" class="grid md:grid-cols-3 gap-6 mb-12">
             <article class="glass rounded-2xl p-7">
-                <p class="text-orange-300 text-3xl mb-4">◎</p>
+                <p class="text-3xl mb-4 gradient-text">◎</p>
                 <h3 class="font-display text-xl font-semibold mb-2">Contractors</h3>
-                <p class="text-slate-300">Prioritize routes around high-probability roof failures and convert leads before competitors know the property is at risk.</p>
+                <p class="text-muted">Prioritize routes around high-probability roof failures and convert leads before competitors know the property is at risk.</p>
             </article>
             <article class="glass rounded-2xl p-7">
-                <p class="text-orange-300 text-3xl mb-4">◎</p>
+                <p class="text-3xl mb-4 gradient-text">◎</p>
                 <h3 class="font-display text-xl font-semibold mb-2">Insurers</h3>
-                <p class="text-slate-300">Cut avoidable claims with region-aware risk scoring that surfaces hidden exposure weeks ahead of severe weather cycles.</p>
+                <p class="text-muted">Cut avoidable claims with region-aware risk scoring that surfaces hidden exposure weeks ahead of severe weather cycles.</p>
             </article>
             <article class="glass rounded-2xl p-7">
-                <p class="text-orange-300 text-3xl mb-4">◎</p>
+                <p class="text-3xl mb-4 gradient-text">◎</p>
                 <h3 class="font-display text-xl font-semibold mb-2">Asset Managers</h3>
-                <p class="text-slate-300">Shift from reactive repairs to capital-efficient maintenance by ranking buildings by near-term degradation risk.</p>
+                <p class="text-muted">Shift from reactive repairs to capital-efficient maintenance by ranking buildings by near-term degradation risk.</p>
             </article>
         </section>
 
-        <section class="glass rounded-3xl p-8 sm:p-10 text-center">
-            <p class="text-xs tracking-[0.24em] text-slate-400 uppercase mb-3">AI That Speaks in Financial Outcomes</p>
+        <section id="how" class="glass rounded-3xl p-8 sm:p-10 mb-12">
+            <p class="text-xs tracking-[0.24em] text-muted uppercase mb-3">How It Works</p>
+            <div class="grid md:grid-cols-3 gap-4 text-sm">
+                <div class="glass rounded-2xl p-5">
+                    <p class="font-display text-lg mb-1">1. Ingest</p>
+                    <p class="text-muted">Weather, claims, material age, and geospatial datasets update continuously.</p>
+                </div>
+                <div class="glass rounded-2xl p-5">
+                    <p class="font-display text-lg mb-1">2. Model</p>
+                    <p class="text-muted">Ensemble models estimate roof degradation probability by address and time window.</p>
+                </div>
+                <div class="glass rounded-2xl p-5">
+                    <p class="font-display text-lg mb-1">3. Act</p>
+                    <p class="text-muted">Teams receive prioritized lists, map alerts, and confidence-backed recommendations.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="glass rounded-3xl p-8 sm:p-10 text-center mb-12">
+            <p class="text-xs tracking-[0.24em] text-muted uppercase mb-3">AI That Speaks in Financial Outcomes</p>
             <h2 class="font-display text-3xl sm:text-4xl font-bold mb-4">See where damage is likely to happen next quarter.</h2>
-            <p class="text-slate-300 max-w-3xl mx-auto mb-8">Forecast structural risk, map claim probability, and deploy teams with confidence using model outputs tuned for business decisions, not data science dashboards.</p>
-            <button class="font-display font-bold bg-orange-500 hover:bg-orange-400 text-slate-950 px-8 py-3 rounded-full transition">Book a 15-min Walkthrough</button>
+            <p class="text-muted max-w-3xl mx-auto mb-8">Forecast structural risk, map claim probability, and deploy teams with confidence using model outputs tuned for business decisions, not data science dashboards.</p>
+            <a href="#contact" class="inline-block font-display font-bold accent-bg px-8 py-3 rounded-full transition">Book a 15-min Walkthrough</a>
+        </section>
+
+        <section id="contact" class="glass rounded-3xl p-8 sm:p-10 text-center">
+            <p class="text-xs tracking-[0.24em] text-muted uppercase mb-3">Contact</p>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold mb-4">Ready to benchmark your portfolio risk?</h2>
+            <p class="text-muted max-w-3xl mx-auto mb-8">Email <a class="underline" href="mailto:hello@rakeml.com">hello@rakeml.com</a> or request a guided walkthrough for your market.</p>
+            <a href="mailto:hello@rakeml.com" class="inline-block font-display font-bold accent-bg px-8 py-3 rounded-full transition">Contact RAKE ML</a>
         </section>
     </main>
 
     <footer class="max-w-7xl mx-auto px-6 pb-10 relative z-10">
-        <div class="border-t border-white/10 pt-8 text-center">
-            <p class="text-xs uppercase tracking-[0.2em] text-slate-400 mb-2">Founded by Navy Aviators • Built for the Built World</p>
-            <p class="text-sm text-slate-500">&copy; 2026 RAKE ML. All rights reserved.</p>
+        <div class="pt-8 text-center" style="border-top: 1px solid var(--line);">
+            <p class="text-xs uppercase tracking-[0.2em] text-muted mb-2">Founded by Navy Aviators • Built for the Built World</p>
+            <p class="text-sm text-muted">&copy; 2026 RAKE ML. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        const root = document.documentElement;
+        const btn = document.getElementById("theme-toggle");
+        const storageKey = "rake-theme";
+
+        const applyTheme = (theme) => {
+            if (theme === "dark") {
+                root.setAttribute("data-theme", "dark");
+                btn.textContent = "Theme: Dark";
+            } else {
+                root.removeAttribute("data-theme");
+                btn.textContent = "Theme: Champagne";
+            }
+        };
+
+        const saved = localStorage.getItem(storageKey);
+        applyTheme(saved === "dark" ? "dark" : "champagne");
+
+        btn.addEventListener("click", () => {
+            const isDark = root.getAttribute("data-theme") === "dark";
+            const next = isDark ? "champagne" : "dark";
+            applyTheme(next);
+            localStorage.setItem(storageKey, next);
+        });
+    </script>
 </body>
 </html>
