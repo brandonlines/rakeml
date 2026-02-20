@@ -1,32 +1,35 @@
-# Acceleration Consortium Concept Site
+# RAKE ML Website
 
-Static website concept redesign for the University of Toronto Acceleration Consortium.
+Marketing site for RAKE ML: predictive intelligence for roofing risk, insurers, contractors, and asset managers.
 
-## Live Development
+## Live Site
 
-Run locally:
+Production URL:
+
+- `https://brandonlines.github.io/rakeml/`
+
+## Run Locally
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Then open `http://localhost:8000`.
+Open:
+
+- `http://localhost:8000/`
 
 ## Project Structure
 
-- `index.html`: Main page (champagne-first theme with optional cyber mode toggle)
+- `index.html`: Main RAKE ML homepage
+- `rake-ml-next.html`: Alternate/backup version of the RAKE ML page
 - `.github/workflows/pages.yml`: GitHub Pages deployment workflow
 
-## Deploy to GitHub Pages
+## Theming
 
-1. Create a new GitHub repository.
-2. Push this project to the `main` branch.
-3. In GitHub, go to `Settings > Pages`.
-4. Set source to `GitHub Actions`.
-5. The included workflow will build and deploy automatically on push to `main`.
+- Default theme: `Champagne` (primary)
+- Secondary theme: `Dark` (previous/current visual style)
+- Theme toggle is in the top navigation and persists in `localStorage` under `rake-theme`
 
-## Notes
+## Deployment
 
-- This repo is a static site (no build step required).
-- Default visual theme is `Champagne`; alternate theme is `Cyber`.
-- Theme preference is stored in browser `localStorage` under `ac-theme`.
+- Deploys via GitHub Pages from the `main` branch using the existing workflow.
