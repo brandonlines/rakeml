@@ -1,201 +1,642 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RAKE ML | Predictive Intelligence for the Built World</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Acceleration Consortium | Materials Discovery, Accelerated</title>
+    <meta
+      name="description"
+      content="Concept redesign for the University of Toronto Acceleration Consortium site focused on clearer calls to action, better hierarchy, and stronger mobile usability."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        :root {
-            --bg: #090b10;
-            --panel: rgba(255, 255, 255, 0.05);
-            --line: rgba(255, 255, 255, 0.14);
-            --text: #f3f6ff;
-            --muted: #a8b0c4;
-            --c1: #f4a626;
-            --c2: #f97316;
-            --c3: #22d3ee;
+      :root {
+        --bg: #f2ede4;
+        --paper: #ffffff;
+        --ink: #0e151a;
+        --muted: #3e4f5d;
+        --line: #d9d2c6;
+        --brand: #1e4e4a;
+        --brand-2: #efb265;
+        --brand-3: #8bb5c8;
+        --accent: #d4543e;
+        --topbar-bg: #e8dece;
+        --topbar-text: #24313b;
+        --topbar-border: #d5c7b2;
+        --header-bg: rgba(250, 247, 240, 0.92);
+        --header-border: rgba(30, 78, 74, 0.2);
+        --surface-soft: #f7f1e7;
+        --surface-card: #ffffff;
+        --kicker-border: #d7c9b4;
+        --kicker-bg: #f3e7d4;
+        --kicker-text: #6e4219;
+        --pill-bg: #ece4d7;
+        --pill-text: #1e4e4a;
+        --cta-border: #dccdb7;
+        --cta-text: #32424f;
+        --body-grad-1: rgba(239, 178, 101, 0.24);
+        --body-grad-2: rgba(139, 181, 200, 0.22);
+        --body-base-1: #fbfaf7;
+        --body-base-2: #f1eadf;
+        --cta-grad-1: rgba(212, 84, 62, 0.18);
+        --cta-bg-a: #f6eee1;
+        --cta-bg-b: #f5efe8;
+        --cta-bg-c: #edf2ec;
+        --brand-glow: rgba(239, 178, 101, 0.35);
+        --primary-glow: rgba(30, 78, 74, 0.2);
+        --radius: 18px;
+        --shadow: 0 16px 36px rgba(17, 26, 46, 0.12);
+      }
+
+      body[data-theme="cyber"] {
+        --bg: #090714;
+        --paper: #111026;
+        --ink: #f4f3ff;
+        --muted: #b6b4d8;
+        --line: #2d2a52;
+        --brand: #00f0ff;
+        --brand-2: #f58220;
+        --brand-3: #5bff98;
+        --accent: #ffe66d;
+        --topbar-bg: #06050f;
+        --topbar-text: #d8d5ff;
+        --topbar-border: #2b2551;
+        --header-bg: rgba(10, 8, 22, 0.86);
+        --header-border: rgba(0, 240, 255, 0.22);
+        --surface-soft: #141133;
+        --surface-card: #131130;
+        --kicker-border: #3c3471;
+        --kicker-bg: #141133;
+        --kicker-text: #85f5ff;
+        --pill-bg: #18143f;
+        --pill-text: #85f5ff;
+        --cta-border: #413879;
+        --cta-text: #c8c5e9;
+        --body-grad-1: rgba(245, 130, 32, 0.24);
+        --body-grad-2: rgba(0, 240, 255, 0.22);
+        --body-base-1: #080612;
+        --body-base-2: #070513;
+        --cta-grad-1: rgba(245, 130, 32, 0.28);
+        --cta-bg-a: #141133;
+        --cta-bg-b: #0e1a33;
+        --cta-bg-c: #142723;
+        --brand-glow: rgba(245, 130, 32, 0.42);
+        --primary-glow: rgba(0, 240, 255, 0.35);
+        --shadow: 0 18px 38px rgba(0, 0, 0, 0.42);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Space Grotesk", system-ui, sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 88% 0%, var(--body-grad-1), transparent 34%),
+          radial-gradient(circle at 8% 14%, var(--body-grad-2), transparent 36%),
+          linear-gradient(180deg, var(--body-base-1) 0%, var(--bg) 48%, var(--body-base-2) 100%);
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .container {
+        width: min(1140px, 100% - 2.2rem);
+        margin: 0 auto;
+      }
+
+      .topbar {
+        background: var(--topbar-bg);
+        color: var(--topbar-text);
+        font-size: 0.84rem;
+        border-bottom: 1px solid var(--topbar-border);
+      }
+
+      .topbar .container {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.55rem 0;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--header-border);
+        background: var(--header-bg);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.1rem;
+        padding: 0.95rem 0;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        font-family: "Sora", sans-serif;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+      }
+
+      .mark {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        color: white;
+        font-weight: 700;
+        background: linear-gradient(140deg, var(--brand) 0%, var(--brand-2) 100%);
+        box-shadow: 0 0 16px var(--brand-glow);
+      }
+
+      .links {
+        display: flex;
+        align-items: center;
+        gap: 1.05rem;
+        color: var(--muted);
+        font-weight: 500;
+      }
+
+      .nav-cta {
+        background: linear-gradient(130deg, var(--brand), var(--brand-2));
+        color: #090714;
+        border-radius: 999px;
+        padding: 0.62rem 1rem;
+        font-weight: 700;
+        box-shadow: 0 0 18px var(--primary-glow);
+      }
+
+      .theme-toggle {
+        background: var(--surface-soft);
+        color: var(--ink);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 0.55rem 0.95rem;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .hero {
+        padding: 4.2rem 0 2.7rem;
+      }
+
+      .hero-wrap {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 1.5rem;
+        align-items: stretch;
+      }
+
+      .kicker {
+        display: inline-block;
+        border: 1px solid var(--kicker-border);
+        background: var(--kicker-bg);
+        color: var(--kicker-text);
+        border-radius: 999px;
+        padding: 0.35rem 0.7rem;
+        font-size: 0.82rem;
+        font-weight: 700;
+      }
+
+      h1 {
+        margin: 0.85rem 0 0.95rem;
+        font-family: "Sora", sans-serif;
+        font-size: clamp(2rem, 4.6vw, 3.5rem);
+        line-height: 1.07;
+        letter-spacing: -0.01em;
+      }
+
+      .lead {
+        color: var(--muted);
+        max-width: 62ch;
+        font-size: 1.04rem;
+        line-height: 1.65;
+      }
+
+      .actions {
+        margin-top: 1.35rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        padding: 0.7rem 1.1rem;
+        font-weight: 700;
+        border: 1px solid var(--line);
+      }
+
+      .btn.primary {
+        background: linear-gradient(130deg, var(--brand), var(--brand-2));
+        color: #070513;
+        border-color: transparent;
+        box-shadow: 0 0 20px var(--primary-glow);
+      }
+
+      .btn.secondary {
+        background: var(--surface-soft);
+        color: var(--ink);
+      }
+
+      .panel {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 1rem;
+        box-shadow: var(--shadow);
+      }
+
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.7rem;
+        margin-top: 0.75rem;
+      }
+
+      .stat {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 0.7rem;
+        background: var(--surface-soft);
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 1.42rem;
+        font-family: "Sora", sans-serif;
+      }
+
+      .section {
+        padding: 1.9rem 0;
+      }
+
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .section-head h2 {
+        margin: 0;
+        font-family: "Sora", sans-serif;
+        font-size: clamp(1.45rem, 3vw, 2.15rem);
+      }
+
+      .section-head p {
+        margin: 0;
+        color: var(--muted);
+        max-width: 50ch;
+      }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.95rem;
+      }
+
+      .card {
+        background: var(--surface-card);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 1rem;
+      }
+
+      .card h3 {
+        margin: 0.2rem 0 0.5rem;
+        font-size: 1.06rem;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.56;
+      }
+
+      .pill {
+        display: inline-block;
+        font-size: 0.76rem;
+        font-weight: 700;
+        border-radius: 999px;
+        padding: 0.22rem 0.58rem;
+        background: var(--pill-bg);
+        color: var(--pill-text);
+      }
+
+      .news {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.9rem;
+      }
+
+      .news-item {
+        background: var(--surface-card);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 1rem;
+      }
+
+      .news-item h3 {
+        margin: 0.35rem 0 0.4rem;
+        font-size: 1.04rem;
+      }
+
+      .news-item p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .cta {
+        margin-top: 1.1rem;
+        border-radius: calc(var(--radius) + 4px);
+        border: 1px solid var(--cta-border);
+        padding: 1.4rem;
+        background:
+          radial-gradient(circle at 88% -20%, var(--cta-grad-1), transparent 34%),
+          linear-gradient(130deg, var(--cta-bg-a) 0%, var(--cta-bg-b) 48%, var(--cta-bg-c) 100%);
+      }
+
+      .cta h3 {
+        margin: 0 0 0.4rem;
+        font-family: "Sora", sans-serif;
+      }
+
+      .cta p {
+        margin: 0 0 0.9rem;
+        color: var(--cta-text);
+      }
+
+      footer {
+        margin-top: 2.2rem;
+        border-top: 1px solid var(--line);
+        padding: 1.2rem 0 2.2rem;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      @media (max-width: 980px) {
+        .hero-wrap,
+        .grid-3,
+        .news {
+          grid-template-columns: 1fr;
         }
 
-        * {
-            box-sizing: border-box;
+        .section-head {
+          flex-direction: column;
+          align-items: start;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .links {
+          display: none;
         }
 
-        body {
-            margin: 0;
-            color: var(--text);
-            background:
-                radial-gradient(50rem 20rem at 10% -10%, rgba(244, 166, 38, 0.2), transparent 65%),
-                radial-gradient(42rem 24rem at 90% 0%, rgba(34, 211, 238, 0.12), transparent 70%),
-                linear-gradient(180deg, #0b1020 0%, #080b12 45%, #07080d 100%);
-            font-family: "Manrope", sans-serif;
-            min-height: 100vh;
+        .theme-toggle {
+          padding: 0.5rem 0.8rem;
+          font-size: 0.86rem;
         }
 
-        .font-display {
-            font-family: "Space Grotesk", sans-serif;
+        .topbar .container {
+          flex-direction: column;
+          align-items: start;
         }
 
-        .glass {
-            background: var(--panel);
-            border: 1px solid var(--line);
-            backdrop-filter: blur(10px);
+        .hero {
+          padding-top: 2.7rem;
         }
 
-        .gradient-text {
-            background: linear-gradient(95deg, var(--c1), var(--c2), var(--c3));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        .stat-grid {
+          grid-template-columns: 1fr;
         }
-
-        .hero-grid {
-            background-image:
-                linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-            background-size: 30px 30px;
-            mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
-            pointer-events: none;
-        }
-
-        .pulse-dot {
-            position: relative;
-        }
-
-        .pulse-dot::after {
-            content: "";
-            position: absolute;
-            inset: -6px;
-            border: 1px solid rgba(249, 115, 22, 0.5);
-            border-radius: 999px;
-            animation: ping 2.2s infinite;
-        }
-
-        @keyframes ping {
-            0% { transform: scale(0.9); opacity: 0.8; }
-            80%, 100% { transform: scale(1.9); opacity: 0; }
-        }
-
-        .fade-up {
-            opacity: 0;
-            transform: translateY(14px);
-            animation: fadeUp 0.65s ease forwards;
-        }
-
-        .fade-up.d2 { animation-delay: 0.12s; }
-        .fade-up.d3 { animation-delay: 0.24s; }
-        .fade-up.d4 { animation-delay: 0.36s; }
-
-        @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+      }
     </style>
-</head>
-<body class="antialiased">
-    <div class="fixed inset-0 hero-grid"></div>
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="container">
+        <div>University of Toronto Acceleration Consortium | Concept Redesign</div>
+        <div>Focused on clearer decisions: Join, Partner, Explore Research</div>
+      </div>
+    </div>
 
-    <nav class="max-w-7xl mx-auto px-6 py-6 relative z-10">
-        <div class="glass rounded-2xl px-5 py-4 flex items-center justify-between">
-            <div class="font-display text-2xl font-bold tracking-tight uppercase">RAKE <span class="text-orange-400">ML</span></div>
-            <div class="hidden md:flex items-center gap-8 text-sm text-slate-300">
-                <a href="#" class="hover:text-white transition">Platform</a>
-                <a href="#" class="hover:text-white transition">For Insurers</a>
-                <a href="#" class="hover:text-white transition">For Contractors</a>
-                <a href="#" class="hover:text-white transition">Research</a>
-            </div>
-            <button class="font-display text-sm font-bold bg-orange-500 hover:bg-orange-400 text-slate-950 px-5 py-2.5 rounded-full transition">Request Demo</button>
-        </div>
-    </nav>
-
-    <header class="max-w-7xl mx-auto px-6 pt-12 pb-20 relative z-10">
-        <div class="grid lg:grid-cols-12 gap-10 items-center">
-            <div class="lg:col-span-7 text-center lg:text-left">
-                <p class="fade-up font-display tracking-[0.2em] uppercase text-xs text-slate-300 mb-6">
-                    Built for risk teams, contractors, and operators
-                </p>
-                <h1 class="fade-up d2 font-display text-5xl sm:text-6xl lg:text-7xl leading-[1.04] font-bold mb-6">
-                    Predict the <span class="gradient-text">unpredictable</span> before it costs you.
-                </h1>
-                <p class="fade-up d3 text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 mb-10">
-                    RAKE ML models roof failure risk using hyperlocal weather, material decay, and historical claims to deliver decision-ready forecasts at address-level precision.
-                </p>
-                <div class="fade-up d4 flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto lg:mx-0">
-                    <input type="text" placeholder="Enter property address..." class="glass w-full px-5 py-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 placeholder:text-slate-400">
-                    <button class="font-display font-bold px-8 py-4 rounded-xl bg-white text-slate-950 hover:bg-orange-400 transition">Analyze Now</button>
-                </div>
-            </div>
-
-            <div class="lg:col-span-5">
-                <div class="glass rounded-3xl p-6 sm:p-8 fade-up d3">
-                    <div class="flex items-center justify-between mb-7">
-                        <h2 class="font-display text-xl font-semibold">Live Risk Snapshot</h2>
-                        <div class="flex items-center gap-2 text-sm text-emerald-300">
-                            <span class="pulse-dot w-2.5 h-2.5 bg-emerald-300 rounded-full"></span>
-                            Streaming
-                        </div>
-                    </div>
-                    <div class="space-y-4">
-                        <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-                            <p class="text-xs text-slate-400 uppercase tracking-widest mb-2">Property Risk Index</p>
-                            <div class="flex items-end justify-between">
-                                <p class="font-display text-4xl font-bold text-orange-300">87</p>
-                                <p class="text-xs text-orange-200">+12 vs county baseline</p>
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-2 gap-3 text-sm">
-                            <div class="rounded-xl border border-white/10 bg-white/5 p-4">
-                                <p class="text-slate-400 mb-1">Failure Window</p>
-                                <p class="font-display text-xl font-semibold">6-14 mo</p>
-                            </div>
-                            <div class="rounded-xl border border-white/10 bg-white/5 p-4">
-                                <p class="text-slate-400 mb-1">Storm Exposure</p>
-                                <p class="font-display text-xl font-semibold">High</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <header>
+      <div class="container nav">
+        <a class="brand" href="#">
+          <span class="mark">AC</span>
+          <span>Acceleration Consortium</span>
+        </a>
+        <nav class="links">
+          <a href="#vision">Vision</a>
+          <a href="#impact">Impact</a>
+          <a href="#discover">Discoveries</a>
+          <a href="#news">News</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch color theme">
+          Cyber mode
+        </button>
+        <a class="nav-cta" href="#contact">Join the consortium</a>
+      </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-6 pb-20 relative z-10">
-        <section class="grid md:grid-cols-3 gap-6 mb-20">
-            <article class="glass rounded-2xl p-7">
-                <p class="text-orange-300 text-3xl mb-4">◎</p>
-                <h3 class="font-display text-xl font-semibold mb-2">Contractors</h3>
-                <p class="text-slate-300">Prioritize routes around high-probability roof failures and convert leads before competitors know the property is at risk.</p>
-            </article>
-            <article class="glass rounded-2xl p-7">
-                <p class="text-orange-300 text-3xl mb-4">◎</p>
-                <h3 class="font-display text-xl font-semibold mb-2">Insurers</h3>
-                <p class="text-slate-300">Cut avoidable claims with region-aware risk scoring that surfaces hidden exposure weeks ahead of severe weather cycles.</p>
-            </article>
-            <article class="glass rounded-2xl p-7">
-                <p class="text-orange-300 text-3xl mb-4">◎</p>
-                <h3 class="font-display text-xl font-semibold mb-2">Asset Managers</h3>
-                <p class="text-slate-300">Shift from reactive repairs to capital-efficient maintenance by ranking buildings by near-term degradation risk.</p>
-            </article>
-        </section>
-
-        <section class="glass rounded-3xl p-8 sm:p-10 text-center">
-            <p class="text-xs tracking-[0.24em] text-slate-400 uppercase mb-3">AI That Speaks in Financial Outcomes</p>
-            <h2 class="font-display text-3xl sm:text-4xl font-bold mb-4">See where damage is likely to happen next quarter.</h2>
-            <p class="text-slate-300 max-w-3xl mx-auto mb-8">Forecast structural risk, map claim probability, and deploy teams with confidence using model outputs tuned for business decisions, not data science dashboards.</p>
-            <button class="font-display font-bold bg-orange-500 hover:bg-orange-400 text-slate-950 px-8 py-3 rounded-full transition">Book a 15-min Walkthrough</button>
-        </section>
-    </main>
-
-    <footer class="max-w-7xl mx-auto px-6 pb-10 relative z-10">
-        <div class="border-t border-white/10 pt-8 text-center">
-            <p class="text-xs uppercase tracking-[0.2em] text-slate-400 mb-2">Founded by Navy Aviators • Built for the Built World</p>
-            <p class="text-sm text-slate-500">&copy; 2026 RAKE ML. All rights reserved.</p>
+    <main class="container">
+      <section class="hero" id="vision">
+        <div class="hero-wrap">
+          <div>
+            <span class="kicker">Materials + Molecules for a Sustainable Future</span>
+            <h1>Accelerating discovery with self-driving labs, AI, and automation.</h1>
+            <p class="lead">
+              We bring together academia, industry, government, and non-profits to reduce the time and cost of materials innovation while advancing rigorous and ethical scientific practice.
+            </p>
+            <div class="actions">
+              <a class="btn primary" href="#contact">Join the consortium</a>
+              <a class="btn secondary" href="#discover">Read publications</a>
+              <a class="btn secondary" href="#impact">What is an SDL?</a>
+            </div>
+          </div>
+          <aside class="panel" aria-label="Key impact metrics">
+            <strong>Impact Snapshot</strong>
+            <div class="stat-grid">
+              <div class="stat">
+                <strong>30+</strong>
+                <span>Self-driving labs globally</span>
+              </div>
+              <div class="stat">
+                <strong>10-100x</strong>
+                <span>Faster discovery</span>
+              </div>
+              <div class="stat">
+                <strong>10-100x</strong>
+                <span>Lower cost</span>
+              </div>
+              <div class="stat">
+                <strong>200+</strong>
+                <span>Members</span>
+              </div>
+            </div>
+          </aside>
         </div>
-    </footer>
-</body>
+      </section>
+
+      <section class="section" id="impact">
+        <div class="section-head">
+          <h2>How the model works</h2>
+          <p>
+            A simplified path from challenge framing to autonomous experimentation and translation into real-world applications.
+          </p>
+        </div>
+        <div class="grid-3">
+          <article class="card">
+            <span class="pill">Step 1</span>
+            <h3>Frame priority challenges</h3>
+            <p>
+              Teams define performance targets in health, energy, electronics, transportation, and green products.
+            </p>
+          </article>
+          <article class="card">
+            <span class="pill">Step 2</span>
+            <h3>Run self-driving lab cycles</h3>
+            <p>
+              AI, robotics, and advanced computation execute rapid design-make-test loops with reproducible data pipelines.
+            </p>
+          </article>
+          <article class="card">
+            <span class="pill">Step 3</span>
+            <h3>Scale with consortium partners</h3>
+            <p>
+              Results move into commercialization pathways through cross-sector collaboration and translational programs.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="discover">
+        <div class="section-head">
+          <h2>What we discover</h2>
+          <p>
+            Focus areas where accelerated materials and molecular design can improve performance, safety, and environmental outcomes.
+          </p>
+        </div>
+        <div class="grid-3">
+          <article class="card">
+            <span class="pill">Health</span>
+            <p>Improved therapeutics, anti-viral coatings, and safer drug formulations.</p>
+          </article>
+          <article class="card">
+            <span class="pill">Energy</span>
+            <p>Efficient clean energy production, photovoltaics, and long-lasting batteries.</p>
+          </article>
+          <article class="card">
+            <span class="pill">Construction + Transport</span>
+            <p>Lighter and stronger materials, corrosion resistance, and lower-impact alternatives.</p>
+          </article>
+        </div>
+        <div class="cta">
+          <h3>Need the right contact quickly?</h3>
+          <p>
+            Consolidated contact routing for general, partnership, scientific, and media inquiries reduces friction for first-time visitors.
+          </p>
+          <a class="btn primary" href="#contact">Go to contact hub</a>
+        </div>
+      </section>
+
+      <section class="section" id="news">
+        <div class="section-head">
+          <h2>Featured updates</h2>
+          <p>
+            Streamlined cards prioritize high-signal stories and reduce homepage scanning overhead.
+          </p>
+        </div>
+        <div class="news">
+          <article class="news-item">
+            <span class="pill">In the Media</span>
+            <h3>U of T and BASF partner on self-driving labs</h3>
+            <p>New collaboration supports accelerated discovery across agriculture, medicine, and beyond.</p>
+          </article>
+          <article class="news-item">
+            <span class="pill">Research</span>
+            <h3>Quantum computing used to identify potential cancer treatment pathways</h3>
+            <p>Cross-disciplinary teams combine quantum and AI methods to speed candidate evaluation.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="section-head">
+          <h2>Contact the right team</h2>
+          <p>
+            One destination for collaboration, media, partnership, and scientific inquiries.
+          </p>
+        </div>
+        <div class="grid-3">
+          <article class="card">
+            <span class="pill">General</span>
+            <p><strong>Email:</strong> acceleration@utoronto.ca</p>
+          </article>
+          <article class="card">
+            <span class="pill">Partnerships</span>
+            <p><strong>Email:</strong> padraic.foley@utoronto.ca</p>
+          </article>
+          <article class="card">
+            <span class="pill">Scientific</span>
+            <p><strong>Email:</strong> brandon.sutherland@utoronto.ca</p>
+          </article>
+        </div>
+      </section>
+
+      <footer>
+        Concept page built for UX/content strategy discussion. Source institution: University of Toronto Acceleration Consortium.
+      </footer>
+    </main>
+    <script>
+      (function () {
+        var key = "ac-theme";
+        var root = document.body;
+        var toggle = document.getElementById("theme-toggle");
+        if (!toggle) return;
+
+        function setTheme(theme) {
+          if (theme === "cyber") {
+            root.setAttribute("data-theme", "cyber");
+            toggle.textContent = "Champagne mode";
+            return;
+          }
+          root.removeAttribute("data-theme");
+          toggle.textContent = "Cyber mode";
+        }
+
+        var stored = localStorage.getItem(key);
+        setTheme(stored || "champagne");
+
+        toggle.addEventListener("click", function () {
+          var next = root.getAttribute("data-theme") === "cyber" ? "champagne" : "cyber";
+          setTheme(next);
+          localStorage.setItem(key, next);
+        });
+      })();
+    </script>
+  </body>
 </html>
