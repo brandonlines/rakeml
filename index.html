@@ -88,6 +88,22 @@
             color: var(--btn-text);
         }
 
+        .theme-switch {
+            border: 1px solid var(--line);
+        }
+
+        .theme-switch.target-dark {
+            background: linear-gradient(180deg, #0f172a, #020617);
+            color: #e2e8f0;
+            border-color: rgba(148, 163, 184, 0.45);
+        }
+
+        .theme-switch.target-light {
+            background: linear-gradient(95deg, #f4e7cb, #e6d4ad);
+            color: #2f2418;
+            border-color: rgba(91, 67, 38, 0.32);
+        }
+
         .soft-panel {
             border: 1px solid var(--line);
             background: var(--panel-soft);
@@ -163,7 +179,7 @@
                 <a href="#contact" class="hover:opacity-80 transition">Contact</a>
             </div>
             <div class="flex items-center gap-3">
-                <button id="theme-toggle" class="font-display text-xs sm:text-sm font-bold px-4 py-2 rounded-full glass text-main transition" type="button">Operations Managers</button>
+                <button id="theme-toggle" class="theme-switch font-display text-xs sm:text-sm font-bold px-4 py-2 rounded-full transition" type="button">Operations Managers</button>
                 <a href="#pilot" class="font-display text-sm font-bold accent-bg px-5 py-2.5 rounded-full transition">Start Design Partner Pilot</a>
             </div>
         </div>
@@ -378,9 +394,13 @@
             if (theme === "dark") {
                 root.setAttribute("data-theme", "dark");
                 btn.textContent = "Asset Managers";
+                btn.classList.remove("target-dark");
+                btn.classList.add("target-light");
             } else {
                 root.removeAttribute("data-theme");
                 btn.textContent = "Operations Managers";
+                btn.classList.remove("target-light");
+                btn.classList.add("target-dark");
             }
         };
 
