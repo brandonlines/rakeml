@@ -180,7 +180,7 @@
             </div>
             <div class="flex items-center gap-3">
                 <button id="theme-toggle" class="theme-switch font-display text-xs sm:text-sm font-bold px-4 py-2 rounded-full transition" type="button">Operations Managers</button>
-                <a href="#pilot" class="font-display text-sm font-bold accent-bg px-5 py-2.5 rounded-full transition">Start Design Partner Pilot</a>
+                <a id="nav-cta" href="#pilot" class="font-display text-sm font-bold accent-bg px-5 py-2.5 rounded-full transition">Start Design Partner Pilot</a>
             </div>
         </div>
     </nav>
@@ -188,25 +188,25 @@
     <header class="max-w-7xl mx-auto px-6 pt-12 pb-20 relative z-10">
         <div class="grid lg:grid-cols-12 gap-10 items-center">
             <div class="lg:col-span-7 text-center lg:text-left">
-                <p class="fade-up font-display tracking-[0.2em] uppercase text-xs text-muted mb-6">
+                <p id="hero-eyebrow" class="fade-up font-display tracking-[0.2em] uppercase text-xs text-muted mb-6">
                     Beyond roofs: distributed critical infrastructure
                 </p>
                 <h1 class="fade-up d2 font-display text-5xl sm:text-6xl lg:text-7xl leading-[1.04] font-bold mb-6">
                     Predict the <span class="gradient-text">unpredictable</span> before it costs you.
                 </h1>
-                <p class="fade-up d3 text-lg text-muted max-w-2xl mx-auto lg:mx-0 mb-10">
+                <p id="hero-copy" class="fade-up d3 text-lg text-muted max-w-2xl mx-auto lg:mx-0 mb-10">
                     RAKE ML fuses imagery, telemetry, inspection reports, work orders, and environmental context to estimate calibrated failure probabilities and rank the next highest-impact interventions.
                 </p>
                 <div class="fade-up d4 flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto lg:mx-0">
-                    <a href="#pilot" class="font-display text-center font-bold px-8 py-4 rounded-xl accent-bg transition">Run Pilot Feasibility</a>
-                    <a href="mailto:hello@rakeml.com?subject=Send%20RAKE%20ICP%20Brief" class="font-display text-center font-bold px-8 py-4 rounded-xl glass text-main transition">Download ICP Brief</a>
+                    <a id="hero-cta-primary" href="#pilot" class="font-display text-center font-bold px-8 py-4 rounded-xl accent-bg transition">Run Pilot Feasibility</a>
+                    <a id="hero-cta-secondary" href="mailto:hello@rakeml.com?subject=Send%20RAKE%20ICP%20Brief" class="font-display text-center font-bold px-8 py-4 rounded-xl glass text-main transition">Download ICP Brief</a>
                 </div>
             </div>
 
             <div class="lg:col-span-5">
                 <div class="glass rounded-3xl p-6 sm:p-8 fade-up d3">
                     <div class="flex items-center justify-between mb-7">
-                        <h2 class="font-display text-xl font-semibold">Pilot Snapshot</h2>
+                        <h2 id="snapshot-title" class="font-display text-xl font-semibold">Pilot Snapshot</h2>
                         <div class="flex items-center gap-2 text-sm text-main">
                             <span class="pulse-dot w-2.5 h-2.5 rounded-full" style="background: var(--c2);"></span>
                             Active
@@ -214,23 +214,23 @@
                     </div>
                     <div class="space-y-4">
                         <div class="soft-panel rounded-2xl p-4">
-                            <p class="text-xs text-muted uppercase tracking-widest mb-2">Highest-ROI Focus</p>
-                            <p class="font-display text-2xl font-bold">5 Priority Verticals</p>
-                            <p class="text-xs text-muted mt-1">T&D, pipelines, rail, towers, offshore wind</p>
+                            <p id="snapshot-focus-label" class="text-xs text-muted uppercase tracking-widest mb-2">Highest-ROI Focus</p>
+                            <p id="snapshot-focus-value" class="font-display text-2xl font-bold">5 Priority Verticals</p>
+                            <p id="snapshot-focus-note" class="text-xs text-muted mt-1">T&D, pipelines, rail, towers, offshore wind</p>
                         </div>
                         <div class="grid grid-cols-2 gap-3 text-sm">
                             <div class="soft-panel rounded-xl p-4">
-                                <p class="text-muted mb-1">Pilot Horizon</p>
-                                <p class="font-display text-xl font-semibold">90 days</p>
+                                <p id="snapshot-kpi1-label" class="text-muted mb-1">Pilot Horizon</p>
+                                <p id="snapshot-kpi1-value" class="font-display text-xl font-semibold">90 days</p>
                             </div>
                             <div class="soft-panel rounded-xl p-4">
-                                <p class="text-muted mb-1">Target Profiles</p>
-                                <p class="font-display text-xl font-semibold">11 accounts</p>
+                                <p id="snapshot-kpi2-label" class="text-muted mb-1">Target Profiles</p>
+                                <p id="snapshot-kpi2-value" class="font-display text-xl font-semibold">11 accounts</p>
                             </div>
                         </div>
                         <div class="soft-panel rounded-xl p-4">
-                            <p class="text-muted mb-1">Core Output</p>
-                            <p class="font-display text-lg font-semibold">Calibrated risk ranking, not binary alarms</p>
+                            <p id="snapshot-output-label" class="text-muted mb-1">Core Output</p>
+                            <p id="snapshot-output-value" class="font-display text-lg font-semibold">Calibrated risk ranking, not binary alarms</p>
                         </div>
                     </div>
                 </div>
@@ -241,74 +241,74 @@
     <main class="max-w-7xl mx-auto px-6 pb-20 relative z-10">
         <section id="platform" class="glass rounded-3xl p-8 sm:p-10 mb-12">
             <p class="text-xs tracking-[0.24em] text-muted uppercase mb-3">Platform</p>
-            <h2 class="font-display text-3xl sm:text-4xl font-bold mb-4">From fragmented signals to decision-grade reliability intelligence.</h2>
-            <p class="text-muted max-w-4xl mb-8">RAKE ML is built for non-stationary failure environments where weather, load, ageing, and operations interact. We convert mixed evidence into explainable risk distributions and intervention priorities tied to operational reality.</p>
+            <h2 id="platform-heading" class="font-display text-3xl sm:text-4xl font-bold mb-4">From fragmented signals to decision-grade reliability intelligence.</h2>
+            <p id="platform-copy" class="text-muted max-w-4xl mb-8">RAKE ML is built for non-stationary failure environments where weather, load, ageing, and operations interact. We convert mixed evidence into explainable risk distributions and intervention priorities tied to operational reality.</p>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div class="glass rounded-2xl p-5">
-                    <p class="font-display font-semibold mb-1">Multi-Modal Fusion</p>
-                    <p class="text-sm text-muted">Imagery, telemetry, inspection text, work orders, and environment in one model context.</p>
+                    <p id="platform-card1-title" class="font-display font-semibold mb-1">Multi-Modal Fusion</p>
+                    <p id="platform-card1-copy" class="text-sm text-muted">Imagery, telemetry, inspection text, work orders, and environment in one model context.</p>
                 </div>
                 <div class="glass rounded-2xl p-5">
-                    <p class="font-display font-semibold mb-1">Stochastic Risk Engine</p>
-                    <p class="text-sm text-muted">Failure probabilities with confidence bands and time-window forecasts.</p>
+                    <p id="platform-card2-title" class="font-display font-semibold mb-1">Stochastic Risk Engine</p>
+                    <p id="platform-card2-copy" class="text-sm text-muted">Failure probabilities with confidence bands and time-window forecasts.</p>
                 </div>
                 <div class="glass rounded-2xl p-5">
-                    <p class="font-display font-semibold mb-1">Evidence Traceability</p>
-                    <p class="text-sm text-muted">Every score is linked to supporting evidence for audit and governance.</p>
+                    <p id="platform-card3-title" class="font-display font-semibold mb-1">Evidence Traceability</p>
+                    <p id="platform-card3-copy" class="text-sm text-muted">Every score is linked to supporting evidence for audit and governance.</p>
                 </div>
                 <div class="glass rounded-2xl p-5">
-                    <p class="font-display font-semibold mb-1">Workflow Integration</p>
-                    <p class="text-sm text-muted">Risk rankings flow into planning, dispatch, and CMMS work-order loops.</p>
+                    <p id="platform-card4-title" class="font-display font-semibold mb-1">Workflow Integration</p>
+                    <p id="platform-card4-copy" class="text-sm text-muted">Risk rankings flow into planning, dispatch, and CMMS work-order loops.</p>
                 </div>
             </div>
         </section>
 
         <section id="verticals" class="mb-12">
             <p class="text-xs tracking-[0.24em] text-muted uppercase mb-3">Top Verticals</p>
-            <h2 class="font-display text-3xl sm:text-4xl font-bold mb-6">Where we see the strongest near-term ROI.</h2>
+            <h2 id="verticals-heading" class="font-display text-3xl sm:text-4xl font-bold mb-6">Where we see the strongest near-term ROI.</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
                 <article class="glass rounded-2xl p-6">
-                    <p class="font-display text-lg font-semibold mb-2">Electric T&D</p>
-                    <p class="text-sm text-muted">High reliability pressure, major O&M budgets, weather and vegetation-driven risk.</p>
+                    <p id="vertical1-title" class="font-display text-lg font-semibold mb-2">Electric T&D</p>
+                    <p id="vertical1-copy" class="text-sm text-muted">High reliability pressure, major O&M budgets, weather and vegetation-driven risk.</p>
                 </article>
                 <article class="glass rounded-2xl p-6">
-                    <p class="font-display text-lg font-semibold mb-2">Midstream Pipelines</p>
-                    <p class="text-sm text-muted">Integrity-critical assets with high-consequence failures and durable maintenance spend.</p>
+                    <p id="vertical2-title" class="font-display text-lg font-semibold mb-2">Midstream Pipelines</p>
+                    <p id="vertical2-copy" class="text-sm text-muted">Integrity-critical assets with high-consequence failures and durable maintenance spend.</p>
                 </article>
                 <article class="glass rounded-2xl p-6">
-                    <p class="font-display text-lg font-semibold mb-2">Rail Networks</p>
-                    <p class="text-sm text-muted">Dense inspection streams and high cost of failures across track and signaling systems.</p>
+                    <p id="vertical3-title" class="font-display text-lg font-semibold mb-2">Rail Networks</p>
+                    <p id="vertical3-copy" class="text-sm text-muted">Dense inspection streams and high cost of failures across track and signaling systems.</p>
                 </article>
                 <article class="glass rounded-2xl p-6">
-                    <p class="font-display text-lg font-semibold mb-2">Telecom Towers</p>
-                    <p class="text-sm text-muted">Distributed site fleets where preventing downtime and truck rolls has outsized leverage.</p>
+                    <p id="vertical4-title" class="font-display text-lg font-semibold mb-2">Telecom Towers</p>
+                    <p id="vertical4-copy" class="text-sm text-muted">Distributed site fleets where preventing downtime and truck rolls has outsized leverage.</p>
                 </article>
                 <article class="glass rounded-2xl p-6">
-                    <p class="font-display text-lg font-semibold mb-2">Offshore Wind</p>
-                    <p class="text-sm text-muted">High O&M intensity and access-constrained maintenance requiring better prioritization.</p>
+                    <p id="vertical5-title" class="font-display text-lg font-semibold mb-2">Offshore Wind</p>
+                    <p id="vertical5-copy" class="text-sm text-muted">High O&M intensity and access-constrained maintenance requiring better prioritization.</p>
                 </article>
             </div>
         </section>
 
         <section id="buyers" class="glass rounded-3xl p-8 sm:p-10 mb-12">
             <p class="text-xs tracking-[0.24em] text-muted uppercase mb-3">Buyer Outcomes</p>
-            <h2 class="font-display text-3xl sm:text-4xl font-bold mb-6">Designed for cross-functional buying teams.</h2>
+            <h2 id="buyers-heading" class="font-display text-3xl sm:text-4xl font-bold mb-6">Designed for cross-functional buying teams.</h2>
             <div class="grid md:grid-cols-2 gap-4">
                 <article class="soft-panel rounded-2xl p-6">
-                    <p class="font-display text-xl font-semibold mb-2">Asset Management and Operations</p>
-                    <p class="text-sm text-muted">Reduce unplanned outages, rank intervention lists by risk and consequence, and justify spend across constrained budgets.</p>
+                    <p id="buyer1-title" class="font-display text-xl font-semibold mb-2">Asset Management and Operations</p>
+                    <p id="buyer1-copy" class="text-sm text-muted">Reduce unplanned outages, rank intervention lists by risk and consequence, and justify spend across constrained budgets.</p>
                 </article>
                 <article class="soft-panel rounded-2xl p-6">
-                    <p class="font-display text-xl font-semibold mb-2">Reliability and Integrity Engineering</p>
-                    <p class="text-sm text-muted">Improve top-K inspection hit rates with calibrated probabilities, longer lead times, and fewer false-priority work orders.</p>
+                    <p id="buyer2-title" class="font-display text-xl font-semibold mb-2">Reliability and Integrity Engineering</p>
+                    <p id="buyer2-copy" class="text-sm text-muted">Improve top-K inspection hit rates with calibrated probabilities, longer lead times, and fewer false-priority work orders.</p>
                 </article>
                 <article class="soft-panel rounded-2xl p-6">
-                    <p class="font-display text-xl font-semibold mb-2">CIO and Data Leadership</p>
-                    <p class="text-sm text-muted">Deploy an auditable prediction service with integration hooks, model monitoring, and workflow-ready outputs.</p>
+                    <p id="buyer3-title" class="font-display text-xl font-semibold mb-2">CIO and Data Leadership</p>
+                    <p id="buyer3-copy" class="text-sm text-muted">Deploy an auditable prediction service with integration hooks, model monitoring, and workflow-ready outputs.</p>
                 </article>
                 <article class="soft-panel rounded-2xl p-6">
-                    <p class="font-display text-xl font-semibold mb-2">HSE, Risk, and Compliance</p>
-                    <p class="text-sm text-muted">Generate defensible maintenance prioritization with evidence-backed explanations for regulatory and audit review.</p>
+                    <p id="buyer4-title" class="font-display text-xl font-semibold mb-2">HSE, Risk, and Compliance</p>
+                    <p id="buyer4-copy" class="text-sm text-muted">Generate defensible maintenance prioritization with evidence-backed explanations for regulatory and audit review.</p>
                 </article>
             </div>
         </section>
@@ -337,43 +337,43 @@
 
         <section id="pilot" class="glass rounded-3xl p-8 sm:p-10 mb-12">
             <p class="text-xs tracking-[0.24em] text-muted uppercase mb-3">Pilot Blueprint</p>
-            <h2 class="font-display text-3xl sm:text-4xl font-bold mb-6">90-day design partner pilot with measurable outcomes.</h2>
+            <h2 id="pilot-heading" class="font-display text-3xl sm:text-4xl font-bold mb-6">90-day design partner pilot with measurable outcomes.</h2>
             <div class="grid lg:grid-cols-2 gap-6">
                 <div class="soft-panel rounded-2xl p-6">
                     <p class="font-display text-xl font-semibold mb-3">Scope</p>
                     <ul class="text-sm text-muted space-y-2 list-disc pl-5">
-                        <li>1 to 2 asset families with clear failure modes</li>
-                        <li>Historical failures, work orders, and inspection history</li>
-                        <li>Multi-modal evidence bundle and operational constraints</li>
-                        <li>Baseline benchmark against current heuristics or schedule-driven maintenance</li>
+                        <li id="pilot-scope-1">1 to 2 asset families with clear failure modes</li>
+                        <li id="pilot-scope-2">Historical failures, work orders, and inspection history</li>
+                        <li id="pilot-scope-3">Multi-modal evidence bundle and operational constraints</li>
+                        <li id="pilot-scope-4">Baseline benchmark against current heuristics or schedule-driven maintenance</li>
                     </ul>
                 </div>
                 <div class="soft-panel rounded-2xl p-6">
                     <p class="font-display text-xl font-semibold mb-3">Success Metrics</p>
                     <ul class="text-sm text-muted space-y-2 list-disc pl-5">
-                        <li>Probability calibration quality on out-of-sample events</li>
-                        <li>Recall at top-K ranked inspections</li>
-                        <li>Reduction in unplanned events in pilot population</li>
-                        <li>Reduction in avoidable truck rolls and corrective maintenance spikes</li>
+                        <li id="pilot-metric-1">Probability calibration quality on out-of-sample events</li>
+                        <li id="pilot-metric-2">Recall at top-K ranked inspections</li>
+                        <li id="pilot-metric-3">Reduction in unplanned events in pilot population</li>
+                        <li id="pilot-metric-4">Reduction in avoidable truck rolls and corrective maintenance spikes</li>
                     </ul>
                 </div>
             </div>
             <div class="mt-8 text-center">
-                <a href="mailto:hello@rakeml.com?subject=Design%20Partner%20Pilot%20Request" class="inline-block font-display font-bold accent-bg px-8 py-3 rounded-full transition">Start Design Partner Pilot</a>
+                <a id="pilot-cta" href="mailto:hello@rakeml.com?subject=Design%20Partner%20Pilot%20Request" class="inline-block font-display font-bold accent-bg px-8 py-3 rounded-full transition">Start Design Partner Pilot</a>
             </div>
         </section>
 
         <section id="proof" class="glass rounded-3xl p-8 sm:p-10 text-center mb-12">
             <p class="text-xs tracking-[0.24em] text-muted uppercase mb-3">GTM Focus</p>
-            <h2 class="font-display text-3xl sm:text-4xl font-bold mb-4">Target-account strategy already mapped across 11 enterprise profiles.</h2>
-            <p class="text-muted max-w-3xl mx-auto mb-8">Current top-priority profile clusters include major utilities, pipeline operators, rail infrastructure leaders, and offshore wind operators where failure consequences and maintenance economics are both material.</p>
-            <a href="mailto:hello@rakeml.com?subject=Send%20Target%20Company%20Strategy" class="inline-block font-display font-bold accent-bg px-8 py-3 rounded-full transition">Request Target Strategy Pack</a>
+            <h2 id="proof-heading" class="font-display text-3xl sm:text-4xl font-bold mb-4">Target-account strategy already mapped across 11 enterprise profiles.</h2>
+            <p id="proof-copy" class="text-muted max-w-3xl mx-auto mb-8">Current top-priority profile clusters include major utilities, pipeline operators, rail infrastructure leaders, and offshore wind operators where failure consequences and maintenance economics are both material.</p>
+            <a id="proof-cta" href="mailto:hello@rakeml.com?subject=Send%20Target%20Company%20Strategy" class="inline-block font-display font-bold accent-bg px-8 py-3 rounded-full transition">Request Target Strategy Pack</a>
         </section>
 
         <section id="contact" class="glass rounded-3xl p-8 sm:p-10 text-center">
             <p class="text-xs tracking-[0.24em] text-muted uppercase mb-3">Contact</p>
-            <h2 class="font-display text-3xl sm:text-4xl font-bold mb-4">Ready to operationalize probabilistic reliability planning?</h2>
-            <p class="text-muted max-w-3xl mx-auto mb-8">Email <a class="underline" href="mailto:hello@rakeml.com">hello@rakeml.com</a> to review fit, data readiness, and pilot design for your asset portfolio.</p>
+            <h2 id="contact-heading" class="font-display text-3xl sm:text-4xl font-bold mb-4">Ready to operationalize probabilistic reliability planning?</h2>
+            <p id="contact-copy" class="text-muted max-w-3xl mx-auto mb-8">Email <a class="underline" href="mailto:hello@rakeml.com">hello@rakeml.com</a> to review fit, data readiness, and pilot design for your asset portfolio.</p>
             <a href="mailto:hello@rakeml.com" class="inline-block font-display font-bold accent-bg px-8 py-3 rounded-full transition">Contact RAKE ML</a>
         </section>
     </main>
@@ -390,6 +390,143 @@
         const btn = document.getElementById("theme-toggle");
         const storageKey = "rake-theme";
 
+        const PERSONA_CONTENT = {
+            champagne: {
+                "nav-cta": { text: "Start Asset Strategy Pilot", href: "#pilot" },
+                "hero-eyebrow": "Asset manager ICP: portfolio risk and capital allocation",
+                "hero-copy": "Quantify where failure probability is concentrating across utilities, pipelines, rail, towers, and wind so you can prioritize capex and defend intervention decisions with evidence.",
+                "hero-cta-primary": { text: "Prioritize CapEx by Risk", href: "#pilot" },
+                "hero-cta-secondary": { text: "Download Asset Manager ICP Brief", href: "mailto:hello@rakeml.com?subject=Send%20Asset%20Manager%20ICP%20Brief" },
+                "snapshot-title": "Portfolio Risk Snapshot",
+                "snapshot-focus-label": "Capital-at-Risk Focus",
+                "snapshot-focus-value": "Top 5 ROI Verticals",
+                "snapshot-focus-note": "Electric T&D, midstream pipelines, rail, towers, offshore wind",
+                "snapshot-kpi1-label": "Planning Window",
+                "snapshot-kpi1-value": "12-18 mo",
+                "snapshot-kpi2-label": "Portfolio Scope",
+                "snapshot-kpi2-value": "11 targets",
+                "snapshot-output-label": "Decision Output",
+                "snapshot-output-value": "Risk-ranked intervention and budget stack",
+                "platform-heading": "Portfolio-level risk intelligence for asset-heavy operators.",
+                "platform-copy": "RAKE ML helps asset managers convert fragmented evidence into a unified risk distribution so capital plans, renewals, and intervention timing can be prioritized by expected downside reduction.",
+                "platform-card1-title": "Cross-Asset Risk Layer",
+                "platform-card1-copy": "Normalize risk scoring across heterogeneous asset classes and operating environments.",
+                "platform-card2-title": "Budget Scenario Engine",
+                "platform-card2-copy": "Test intervention mixes and compare risk reduction versus spend before committing budget.",
+                "platform-card3-title": "Evidence-Linked Governance",
+                "platform-card3-copy": "Attach inspection, telemetry, and maintenance evidence to each decision for auditability.",
+                "platform-card4-title": "Finance + Ops Alignment",
+                "platform-card4-copy": "Create one ranked plan both asset management and operations teams can execute.",
+                "verticals-heading": "Where asset managers capture the strongest financial leverage.",
+                "vertical1-copy": "Prioritize hardening and renewal on feeders where outage, wildfire, and service-risk exposure concentrate.",
+                "vertical2-copy": "Rank integrity interventions by consequence-weighted failure probability and regulated budget durability.",
+                "vertical3-copy": "Target renewal windows where deterioration risk and network disruption cost are jointly highest.",
+                "vertical4-copy": "Allocate preventive spend to sites with the highest risk-adjusted downtime and service exposure.",
+                "vertical5-copy": "Sequence vessel, crew, and parts budgets around probabilistic failure timing across turbine fleets.",
+                "buyers-heading": "Tailored for asset, finance, and risk stakeholders.",
+                "buyer1-title": "Portfolio Asset Management",
+                "buyer1-copy": "Prioritize interventions by risk concentration, not static inspection intervals.",
+                "buyer2-title": "Finance and Risk Leadership",
+                "buyer2-copy": "Tie maintenance and renewal spend to quantified downside reduction and incident volatility control.",
+                "buyer3-title": "Reliability and Integrity",
+                "buyer3-copy": "Use calibrated failure distributions to improve long-range planning confidence.",
+                "buyer4-title": "Capital Planning and PMO",
+                "buyer4-copy": "Stage multi-year programs around risk-adjusted sequencing and defensible investment cases.",
+                "pilot-heading": "Asset-manager pilot: prove risk-adjusted capital decisions in 90 days.",
+                "pilot-scope-1": "Select 1 to 2 asset families with clear spend and risk concentration patterns",
+                "pilot-scope-2": "Ingest failures, work orders, inspection evidence, and asset registry structure",
+                "pilot-scope-3": "Model intervention scenarios against budget and maintenance constraints",
+                "pilot-scope-4": "Benchmark against current capital-prioritization heuristics",
+                "pilot-metric-1": "Lift in top-decile risk capture versus current prioritization",
+                "pilot-metric-2": "Estimated reduction in incident volatility and emergency spend",
+                "pilot-metric-3": "CapEx deferral opportunities with controlled risk exposure",
+                "pilot-metric-4": "Audit-ready decision package for investment committee review",
+                "pilot-cta": { text: "Start Asset Strategy Pilot", href: "mailto:hello@rakeml.com?subject=Asset%20Strategy%20Pilot%20Request" },
+                "proof-heading": "Target-company strategy mapped for budget-intensive asset portfolios.",
+                "proof-copy": "Current focus profiles align to utilities, pipelines, rail, towers, and offshore wind where maintenance spend, reliability obligations, and capital planning pressure are all high.",
+                "proof-cta": { text: "Request Asset ICP Pack", href: "mailto:hello@rakeml.com?subject=Send%20Asset%20Manager%20ICP%20Pack" },
+                "contact-heading": "Need a portfolio risk baseline before budget season?",
+                "contact-copy": { html: "Email <a class=\"underline\" href=\"mailto:hello@rakeml.com\">hello@rakeml.com</a> to scope an asset-manager pilot and review budget-linked success metrics." }
+            },
+            dark: {
+                "nav-cta": { text: "Start Operations Reliability Pilot", href: "#pilot" },
+                "hero-eyebrow": "Operations manager ICP: uptime, MTTR, and dispatch efficiency",
+                "hero-copy": "Predict failures before they interrupt service by fusing alarms, inspections, and work history into ranked work queues your field teams can execute immediately.",
+                "hero-cta-primary": { text: "Reduce Unplanned Downtime", href: "#pilot" },
+                "hero-cta-secondary": { text: "Download Operations ICP Brief", href: "mailto:hello@rakeml.com?subject=Send%20Operations%20Manager%20ICP%20Brief" },
+                "snapshot-title": "Operations Reliability Snapshot",
+                "snapshot-focus-label": "Operational Priority",
+                "snapshot-focus-value": "Highest-Frequency Failure Clusters",
+                "snapshot-focus-note": "Power, cooling, controls, and field access constraints",
+                "snapshot-kpi1-label": "Pilot Horizon",
+                "snapshot-kpi1-value": "90 days",
+                "snapshot-kpi2-label": "Execution Scope",
+                "snapshot-kpi2-value": "1-2 families",
+                "snapshot-output-label": "Field Output",
+                "snapshot-output-value": "Top-K work queue with lead-time confidence",
+                "platform-heading": "Decision support for reliability teams under real constraints.",
+                "platform-copy": "RAKE ML gives operations teams a continuously ranked intervention list that balances failure likelihood, consequence, crew availability, and maintenance windows.",
+                "platform-card1-title": "Live Signal Fusion",
+                "platform-card1-copy": "Combine telemetry, inspections, imagery, and work history without vendor silos.",
+                "platform-card2-title": "Failure Lead-Time Scoring",
+                "platform-card2-copy": "Identify what is most likely to fail next and when the intervention window closes.",
+                "platform-card3-title": "Root-Cause Traceability",
+                "platform-card3-copy": "Explain each score using the specific evidence operators trust in the field.",
+                "platform-card4-title": "CMMS and Dispatch Loop",
+                "platform-card4-copy": "Push ranked actions directly into work-order and execution workflows.",
+                "verticals-heading": "Where operations teams can cut downtime fastest.",
+                "vertical1-copy": "Target feeder, transformer, and vegetation risk conditions that drive outage and restoration pressure.",
+                "vertical2-copy": "Prioritize station and line interventions before integrity excursions become emergency work.",
+                "vertical3-copy": "Use detector and inspection streams to prevent recurring track and equipment disruptions.",
+                "vertical4-copy": "Reduce repeat site incidents and truck rolls by ranking weather and power-related failure risk.",
+                "vertical5-copy": "Schedule crews and vessels against component failure likelihood to avoid reactive offshore maintenance.",
+                "buyers-heading": "Built for operations, reliability, and field execution.",
+                "buyer1-title": "Operations Leadership",
+                "buyer1-copy": "Lower unplanned downtime while improving adherence to maintenance windows.",
+                "buyer2-title": "Reliability Engineering",
+                "buyer2-copy": "Increase recall at top-K prioritized tasks and reduce false-priority alerts.",
+                "buyer3-title": "Field Service and Dispatch",
+                "buyer3-copy": "Send crews to the highest-consequence risks first with clear evidence context.",
+                "buyer4-title": "HSE and Compliance",
+                "buyer4-copy": "Maintain defensible intervention records with traceability from risk score to completed action.",
+                "pilot-heading": "Operations pilot: reduce unplanned downtime within one maintenance cycle.",
+                "pilot-scope-1": "Focus on 1 to 2 asset families with frequent operational disruption events",
+                "pilot-scope-2": "Ingest alarms, work orders, inspections, and technician notes",
+                "pilot-scope-3": "Generate ranked interventions constrained by crew capacity and maintenance windows",
+                "pilot-scope-4": "Benchmark against reactive dispatch and fixed-interval maintenance",
+                "pilot-metric-1": "Reduction in unplanned events in the pilot population",
+                "pilot-metric-2": "Recall at top-K prioritized work orders",
+                "pilot-metric-3": "Lower avoidable truck rolls and repeat failure callouts",
+                "pilot-metric-4": "MTTR and schedule-adherence improvement",
+                "pilot-cta": { text: "Start Operations Reliability Pilot", href: "mailto:hello@rakeml.com?subject=Operations%20Reliability%20Pilot%20Request" },
+                "proof-heading": "Design-partner profiles mapped for high-consequence operations teams.",
+                "proof-copy": "Current focus includes utilities, pipelines, rail, telecom infrastructure, and offshore wind where uptime and service disruption costs are immediate and measurable.",
+                "proof-cta": { text: "Request Operations Strategy Pack", href: "mailto:hello@rakeml.com?subject=Send%20Operations%20Manager%20Strategy%20Pack" },
+                "contact-heading": "Need faster intervention ranking for your field teams?",
+                "contact-copy": { html: "Email <a class=\"underline\" href=\"mailto:hello@rakeml.com\">hello@rakeml.com</a> to scope an operations-manager pilot with downtime and MTTR targets." }
+            }
+        };
+
+        const setContent = (id, value) => {
+            const node = document.getElementById(id);
+            if (!node || value === undefined || value === null) return;
+
+            if (typeof value === "string") {
+                node.textContent = value;
+                return;
+            }
+
+            if (value.text !== undefined) node.textContent = value.text;
+            if (value.html !== undefined) node.innerHTML = value.html;
+            if (value.href !== undefined) node.setAttribute("href", value.href);
+        };
+
+        const applyPersonaContent = (theme) => {
+            const personaKey = theme === "dark" ? "dark" : "champagne";
+            const content = PERSONA_CONTENT[personaKey];
+            Object.entries(content).forEach(([id, value]) => setContent(id, value));
+        };
+
         const applyTheme = (theme) => {
             if (theme === "dark") {
                 root.setAttribute("data-theme", "dark");
@@ -402,6 +539,7 @@
                 btn.classList.remove("target-light");
                 btn.classList.add("target-dark");
             }
+            applyPersonaContent(theme);
         };
 
         const saved = localStorage.getItem(storageKey);
