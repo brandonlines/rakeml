@@ -88,6 +88,11 @@
             color: var(--btn-text);
         }
 
+        .soft-panel {
+            border: 1px solid var(--line);
+            background: var(--panel-soft);
+        }
+
         .input-shell {
             background: var(--input-bg);
         }
@@ -152,13 +157,14 @@
             <div class="font-display text-2xl font-bold tracking-tight uppercase text-main">RAKE <span class="gradient-text">ML</span></div>
             <div class="hidden md:flex items-center gap-8 text-sm text-muted">
                 <a href="#platform" class="hover:opacity-80 transition">Platform</a>
-                <a href="#audiences" class="hover:opacity-80 transition">Use Cases</a>
-                <a href="#how" class="hover:opacity-80 transition">How It Works</a>
+                <a href="#verticals" class="hover:opacity-80 transition">Verticals</a>
+                <a href="#buyers" class="hover:opacity-80 transition">Buyers</a>
+                <a href="#pilot" class="hover:opacity-80 transition">Pilot</a>
                 <a href="#contact" class="hover:opacity-80 transition">Contact</a>
             </div>
             <div class="flex items-center gap-3">
                 <button id="theme-toggle" class="font-display text-xs sm:text-sm font-bold px-4 py-2 rounded-full glass text-main transition" type="button">Theme: Champagne</button>
-                <a href="#contact" class="font-display text-sm font-bold accent-bg px-5 py-2.5 rounded-full transition">Request Demo</a>
+                <a href="#pilot" class="font-display text-sm font-bold accent-bg px-5 py-2.5 rounded-full transition">Start Design Partner Pilot</a>
             </div>
         </div>
     </nav>
@@ -167,46 +173,48 @@
         <div class="grid lg:grid-cols-12 gap-10 items-center">
             <div class="lg:col-span-7 text-center lg:text-left">
                 <p class="fade-up font-display tracking-[0.2em] uppercase text-xs text-muted mb-6">
-                    Built for risk teams, contractors, and operators
+                    Beyond roofs: distributed critical infrastructure
                 </p>
                 <h1 class="fade-up d2 font-display text-5xl sm:text-6xl lg:text-7xl leading-[1.04] font-bold mb-6">
-                    Predict the <span class="gradient-text">unpredictable</span> before it costs you.
+                    Multi-modal <span class="gradient-text">stochastic failure prediction</span> for critical assets.
                 </h1>
                 <p class="fade-up d3 text-lg text-muted max-w-2xl mx-auto lg:mx-0 mb-10">
-                    RAKE ML models roof failure risk using hyperlocal weather, material decay, and historical claims to deliver decision-ready forecasts at address-level precision.
+                    RAKE ML fuses imagery, telemetry, inspection reports, work orders, and environmental context to estimate calibrated failure probabilities and rank the next highest-impact interventions.
                 </p>
                 <div class="fade-up d4 flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto lg:mx-0">
-                    <input type="text" placeholder="Enter property address..." class="input-shell glass w-full px-5 py-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 placeholder:text-muted">
-                    <button class="font-display font-bold px-8 py-4 rounded-xl accent-bg transition">Analyze Now</button>
+                    <a href="#pilot" class="font-display text-center font-bold px-8 py-4 rounded-xl accent-bg transition">Run Pilot Feasibility</a>
+                    <a href="mailto:hello@rakeml.com?subject=Send%20RAKE%20ICP%20Brief" class="font-display text-center font-bold px-8 py-4 rounded-xl glass text-main transition">Download ICP Brief</a>
                 </div>
             </div>
 
             <div class="lg:col-span-5">
                 <div class="glass rounded-3xl p-6 sm:p-8 fade-up d3">
                     <div class="flex items-center justify-between mb-7">
-                        <h2 class="font-display text-xl font-semibold">Live Risk Snapshot</h2>
+                        <h2 class="font-display text-xl font-semibold">Pilot Snapshot</h2>
                         <div class="flex items-center gap-2 text-sm text-main">
                             <span class="pulse-dot w-2.5 h-2.5 rounded-full" style="background: var(--c2);"></span>
-                            Streaming
+                            Active
                         </div>
                     </div>
                     <div class="space-y-4">
-                        <div class="rounded-2xl border p-4" style="border-color: var(--line); background: var(--panel-soft);">
-                            <p class="text-xs text-muted uppercase tracking-widest mb-2">Property Risk Index</p>
-                            <div class="flex items-end justify-between">
-                                <p class="font-display text-4xl font-bold gradient-text">87</p>
-                                <p class="text-xs text-muted">+12 vs county baseline</p>
-                            </div>
+                        <div class="soft-panel rounded-2xl p-4">
+                            <p class="text-xs text-muted uppercase tracking-widest mb-2">Highest-ROI Focus</p>
+                            <p class="font-display text-2xl font-bold">5 Priority Verticals</p>
+                            <p class="text-xs text-muted mt-1">T&D, pipelines, rail, towers, offshore wind</p>
                         </div>
                         <div class="grid grid-cols-2 gap-3 text-sm">
-                            <div class="rounded-xl border p-4" style="border-color: var(--line); background: var(--panel-soft);">
-                                <p class="text-muted mb-1">Failure Window</p>
-                                <p class="font-display text-xl font-semibold">6-14 mo</p>
+                            <div class="soft-panel rounded-xl p-4">
+                                <p class="text-muted mb-1">Pilot Horizon</p>
+                                <p class="font-display text-xl font-semibold">90 days</p>
                             </div>
-                            <div class="rounded-xl border p-4" style="border-color: var(--line); background: var(--panel-soft);">
-                                <p class="text-muted mb-1">Storm Exposure</p>
-                                <p class="font-display text-xl font-semibold">High</p>
+                            <div class="soft-panel rounded-xl p-4">
+                                <p class="text-muted mb-1">Target Profiles</p>
+                                <p class="font-display text-xl font-semibold">11 accounts</p>
                             </div>
+                        </div>
+                        <div class="soft-panel rounded-xl p-4">
+                            <p class="text-muted mb-1">Core Output</p>
+                            <p class="font-display text-lg font-semibold">Calibrated risk ranking, not binary alarms</p>
                         </div>
                     </div>
                 </div>
@@ -216,72 +224,140 @@
 
     <main class="max-w-7xl mx-auto px-6 pb-20 relative z-10">
         <section id="platform" class="glass rounded-3xl p-8 sm:p-10 mb-12">
-            <p class="text-xs tracking-[0.24em] text-muted uppercase mb-3">Platform Overview</p>
-            <h2 class="font-display text-3xl sm:text-4xl font-bold mb-4">Address-level predictions for the built world.</h2>
-            <p class="text-muted max-w-4xl mb-8">RAKE ML combines atmospheric data, roof system age curves, and loss history to produce actionable risk scores, renewal prioritization lists, and route-ready opportunity maps. Every output is designed for field teams and underwriting workflows, not just analysts.</p>
-            <div class="grid md:grid-cols-3 gap-4">
+            <p class="text-xs tracking-[0.24em] text-muted uppercase mb-3">Platform</p>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold mb-4">From fragmented signals to decision-grade reliability intelligence.</h2>
+            <p class="text-muted max-w-4xl mb-8">RAKE ML is built for non-stationary failure environments where weather, load, ageing, and operations interact. We convert mixed evidence into explainable risk distributions and intervention priorities tied to operational reality.</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div class="glass rounded-2xl p-5">
-                    <p class="font-display font-semibold mb-1">Risk API</p>
-                    <p class="text-sm text-muted">Real-time property scores for policy and prospect systems.</p>
+                    <p class="font-display font-semibold mb-1">Multi-Modal Fusion</p>
+                    <p class="text-sm text-muted">Imagery, telemetry, inspection text, work orders, and environment in one model context.</p>
                 </div>
                 <div class="glass rounded-2xl p-5">
-                    <p class="font-display font-semibold mb-1">Portfolio Console</p>
-                    <p class="text-sm text-muted">Map view, filtering, and alerting for high-risk properties.</p>
+                    <p class="font-display font-semibold mb-1">Stochastic Risk Engine</p>
+                    <p class="text-sm text-muted">Failure probabilities with confidence bands and time-window forecasts.</p>
                 </div>
                 <div class="glass rounded-2xl p-5">
-                    <p class="font-display font-semibold mb-1">Forecast Reports</p>
-                    <p class="text-sm text-muted">Weekly risk summaries with explainability at each address.</p>
+                    <p class="font-display font-semibold mb-1">Evidence Traceability</p>
+                    <p class="text-sm text-muted">Every score is linked to supporting evidence for audit and governance.</p>
+                </div>
+                <div class="glass rounded-2xl p-5">
+                    <p class="font-display font-semibold mb-1">Workflow Integration</p>
+                    <p class="text-sm text-muted">Risk rankings flow into planning, dispatch, and CMMS work-order loops.</p>
                 </div>
             </div>
         </section>
 
-        <section id="audiences" class="grid md:grid-cols-3 gap-6 mb-12">
-            <article class="glass rounded-2xl p-7">
-                <p class="text-3xl mb-4 gradient-text">◎</p>
-                <h3 class="font-display text-xl font-semibold mb-2">Contractors</h3>
-                <p class="text-muted">Prioritize routes around high-probability roof failures and convert leads before competitors know the property is at risk.</p>
-            </article>
-            <article class="glass rounded-2xl p-7">
-                <p class="text-3xl mb-4 gradient-text">◎</p>
-                <h3 class="font-display text-xl font-semibold mb-2">Insurers</h3>
-                <p class="text-muted">Cut avoidable claims with region-aware risk scoring that surfaces hidden exposure weeks ahead of severe weather cycles.</p>
-            </article>
-            <article class="glass rounded-2xl p-7">
-                <p class="text-3xl mb-4 gradient-text">◎</p>
-                <h3 class="font-display text-xl font-semibold mb-2">Asset Managers</h3>
-                <p class="text-muted">Shift from reactive repairs to capital-efficient maintenance by ranking buildings by near-term degradation risk.</p>
-            </article>
+        <section id="verticals" class="mb-12">
+            <p class="text-xs tracking-[0.24em] text-muted uppercase mb-3">Top Verticals</p>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold mb-6">Where we see the strongest near-term ROI.</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
+                <article class="glass rounded-2xl p-6">
+                    <p class="font-display text-lg font-semibold mb-2">Electric T&D</p>
+                    <p class="text-sm text-muted">High reliability pressure, major O&M budgets, weather and vegetation-driven risk.</p>
+                </article>
+                <article class="glass rounded-2xl p-6">
+                    <p class="font-display text-lg font-semibold mb-2">Midstream Pipelines</p>
+                    <p class="text-sm text-muted">Integrity-critical assets with high-consequence failures and durable maintenance spend.</p>
+                </article>
+                <article class="glass rounded-2xl p-6">
+                    <p class="font-display text-lg font-semibold mb-2">Rail Networks</p>
+                    <p class="text-sm text-muted">Dense inspection streams and high cost of failures across track and signaling systems.</p>
+                </article>
+                <article class="glass rounded-2xl p-6">
+                    <p class="font-display text-lg font-semibold mb-2">Telecom Towers</p>
+                    <p class="text-sm text-muted">Distributed site fleets where preventing downtime and truck rolls has outsized leverage.</p>
+                </article>
+                <article class="glass rounded-2xl p-6">
+                    <p class="font-display text-lg font-semibold mb-2">Offshore Wind</p>
+                    <p class="text-sm text-muted">High O&M intensity and access-constrained maintenance requiring better prioritization.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="buyers" class="glass rounded-3xl p-8 sm:p-10 mb-12">
+            <p class="text-xs tracking-[0.24em] text-muted uppercase mb-3">Buyer Outcomes</p>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold mb-6">Designed for cross-functional buying teams.</h2>
+            <div class="grid md:grid-cols-2 gap-4">
+                <article class="soft-panel rounded-2xl p-6">
+                    <p class="font-display text-xl font-semibold mb-2">Asset Management and Operations</p>
+                    <p class="text-sm text-muted">Reduce unplanned outages, rank intervention lists by risk and consequence, and justify spend across constrained budgets.</p>
+                </article>
+                <article class="soft-panel rounded-2xl p-6">
+                    <p class="font-display text-xl font-semibold mb-2">Reliability and Integrity Engineering</p>
+                    <p class="text-sm text-muted">Improve top-K inspection hit rates with calibrated probabilities, longer lead times, and fewer false-priority work orders.</p>
+                </article>
+                <article class="soft-panel rounded-2xl p-6">
+                    <p class="font-display text-xl font-semibold mb-2">CIO and Data Leadership</p>
+                    <p class="text-sm text-muted">Deploy an auditable prediction service with integration hooks, model monitoring, and workflow-ready outputs.</p>
+                </article>
+                <article class="soft-panel rounded-2xl p-6">
+                    <p class="font-display text-xl font-semibold mb-2">HSE, Risk, and Compliance</p>
+                    <p class="text-sm text-muted">Generate defensible maintenance prioritization with evidence-backed explanations for regulatory and audit review.</p>
+                </article>
+            </div>
         </section>
 
         <section id="how" class="glass rounded-3xl p-8 sm:p-10 mb-12">
             <p class="text-xs tracking-[0.24em] text-muted uppercase mb-3">How It Works</p>
-            <div class="grid md:grid-cols-3 gap-4 text-sm">
+            <div class="grid md:grid-cols-4 gap-4 text-sm">
                 <div class="glass rounded-2xl p-5">
                     <p class="font-display text-lg mb-1">1. Ingest</p>
-                    <p class="text-muted">Weather, claims, material age, and geospatial datasets update continuously.</p>
+                    <p class="text-muted">Connect asset registry, inspection imagery, telemetry, maintenance logs, and weather context.</p>
                 </div>
                 <div class="glass rounded-2xl p-5">
                     <p class="font-display text-lg mb-1">2. Model</p>
-                    <p class="text-muted">Ensemble models estimate roof degradation probability by address and time window.</p>
+                    <p class="text-muted">Estimate failure probability distributions across asset families and forecast horizons.</p>
                 </div>
                 <div class="glass rounded-2xl p-5">
-                    <p class="font-display text-lg mb-1">3. Act</p>
-                    <p class="text-muted">Teams receive prioritized lists, map alerts, and confidence-backed recommendations.</p>
+                    <p class="font-display text-lg mb-1">3. Explain</p>
+                    <p class="text-muted">Surface evidence trails behind each score so teams understand why risk is changing.</p>
+                </div>
+                <div class="glass rounded-2xl p-5">
+                    <p class="font-display text-lg mb-1">4. Act</p>
+                    <p class="text-muted">Push ranked interventions to planning and field execution workflows.</p>
                 </div>
             </div>
         </section>
 
-        <section class="glass rounded-3xl p-8 sm:p-10 text-center mb-12">
-            <p class="text-xs tracking-[0.24em] text-muted uppercase mb-3">AI That Speaks in Financial Outcomes</p>
-            <h2 class="font-display text-3xl sm:text-4xl font-bold mb-4">See where damage is likely to happen next quarter.</h2>
-            <p class="text-muted max-w-3xl mx-auto mb-8">Forecast structural risk, map claim probability, and deploy teams with confidence using model outputs tuned for business decisions, not data science dashboards.</p>
-            <a href="#contact" class="inline-block font-display font-bold accent-bg px-8 py-3 rounded-full transition">Book a 15-min Walkthrough</a>
+        <section id="pilot" class="glass rounded-3xl p-8 sm:p-10 mb-12">
+            <p class="text-xs tracking-[0.24em] text-muted uppercase mb-3">Pilot Blueprint</p>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold mb-6">90-day design partner pilot with measurable outcomes.</h2>
+            <div class="grid lg:grid-cols-2 gap-6">
+                <div class="soft-panel rounded-2xl p-6">
+                    <p class="font-display text-xl font-semibold mb-3">Scope</p>
+                    <ul class="text-sm text-muted space-y-2 list-disc pl-5">
+                        <li>1 to 2 asset families with clear failure modes</li>
+                        <li>Historical failures, work orders, and inspection history</li>
+                        <li>Multi-modal evidence bundle and operational constraints</li>
+                        <li>Baseline benchmark against current heuristics or schedule-driven maintenance</li>
+                    </ul>
+                </div>
+                <div class="soft-panel rounded-2xl p-6">
+                    <p class="font-display text-xl font-semibold mb-3">Success Metrics</p>
+                    <ul class="text-sm text-muted space-y-2 list-disc pl-5">
+                        <li>Probability calibration quality on out-of-sample events</li>
+                        <li>Recall at top-K ranked inspections</li>
+                        <li>Reduction in unplanned events in pilot population</li>
+                        <li>Reduction in avoidable truck rolls and corrective maintenance spikes</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 text-center">
+                <a href="mailto:hello@rakeml.com?subject=Design%20Partner%20Pilot%20Request" class="inline-block font-display font-bold accent-bg px-8 py-3 rounded-full transition">Start Design Partner Pilot</a>
+            </div>
+        </section>
+
+        <section id="proof" class="glass rounded-3xl p-8 sm:p-10 text-center mb-12">
+            <p class="text-xs tracking-[0.24em] text-muted uppercase mb-3">GTM Focus</p>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold mb-4">Target-account strategy already mapped across 11 enterprise profiles.</h2>
+            <p class="text-muted max-w-3xl mx-auto mb-8">Current top-priority profile clusters include major utilities, pipeline operators, rail infrastructure leaders, and offshore wind operators where failure consequences and maintenance economics are both material.</p>
+            <a href="mailto:hello@rakeml.com?subject=Send%20Target%20Company%20Strategy" class="inline-block font-display font-bold accent-bg px-8 py-3 rounded-full transition">Request Target Strategy Pack</a>
         </section>
 
         <section id="contact" class="glass rounded-3xl p-8 sm:p-10 text-center">
             <p class="text-xs tracking-[0.24em] text-muted uppercase mb-3">Contact</p>
-            <h2 class="font-display text-3xl sm:text-4xl font-bold mb-4">Ready to benchmark your portfolio risk?</h2>
-            <p class="text-muted max-w-3xl mx-auto mb-8">Email <a class="underline" href="mailto:hello@rakeml.com">hello@rakeml.com</a> or request a guided walkthrough for your market.</p>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold mb-4">Ready to operationalize probabilistic reliability planning?</h2>
+            <p class="text-muted max-w-3xl mx-auto mb-8">Email <a class="underline" href="mailto:hello@rakeml.com">hello@rakeml.com</a> to review fit, data readiness, and pilot design for your asset portfolio.</p>
             <a href="mailto:hello@rakeml.com" class="inline-block font-display font-bold accent-bg px-8 py-3 rounded-full transition">Contact RAKE ML</a>
         </section>
     </main>
@@ -301,7 +377,7 @@
         const applyTheme = (theme) => {
             if (theme === "dark") {
                 root.setAttribute("data-theme", "dark");
-                btn.textContent = "Theme: Dark";
+                btn.textContent = "Theme: Operations Dark";
             } else {
                 root.removeAttribute("data-theme");
                 btn.textContent = "Theme: Champagne";
