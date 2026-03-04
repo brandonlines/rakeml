@@ -1,0 +1,2828 @@
+{
+  "title": "100 Days of Python for Siloxane Chemistry (Interactive)",
+  "version": "0.2.0",
+  "checkpoints": {
+    "10": "Formulation Calculator + unit-safe schema checks",
+    "20": "Batchbook + QC analytics notebook (noisy data handling)",
+    "30": "DoE + response-surface modeling template",
+    "40": "SiloxaneSpec: polymer-aware representation + functional group bookkeeping",
+    "50": "Cure kinetics model (ODE fit + Arrhenius + uncertainty)",
+    "60": "Property & cost scorer (constraints + BOM rollup)",
+    "70": "Property predictor (PyTorch-style patterns) + experiment tracking (W&B/MLflow hooks)",
+    "80": "Active-learning campaign runner (Optuna/BO loop) with failure modes",
+    "90": "Ops dashboard + release rules + drift monitoring",
+    "100": "Capstone demo: lab-in-the-loop simulator + reproducible pipeline"
+  },
+  "days": [
+    {
+      "day": 1,
+      "track": "Foundations",
+      "task": "Environment + reproducibility",
+      "note": "Create a Python env file; pre-commit; git workflow.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 1 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "wt% should sum to:",
+          "options": [
+            "100",
+            "1",
+            "1000"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Normalize wt% to 100.",
+          "starter": "parts={'PDMS':92,'Filler':10,'Catalyst':0.2}\ntotal=sum(parts.values())\nprint({k:round(v*100/total,2) for k,v in parts.items()})",
+          "check_contains": "PDMS"
+        }
+      }
+    },
+    {
+      "day": 2,
+      "track": "Foundations",
+      "task": "Data models for chemistry",
+      "note": "Define typed records for materials, lots, experiments.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 2 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "wt% should sum to:",
+          "options": [
+            "100",
+            "1",
+            "1000"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Normalize wt% to 100.",
+          "starter": "parts={'PDMS':92,'Filler':10,'Catalyst':0.2}\ntotal=sum(parts.values())\nprint({k:round(v*100/total,2) for k,v in parts.items()})",
+          "check_contains": "PDMS"
+        }
+      }
+    },
+    {
+      "day": 3,
+      "track": "Foundations",
+      "task": "Units + constraints",
+      "note": "Implement conversions, normalization, constraint validation.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 3 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "wt% should sum to:",
+          "options": [
+            "100",
+            "1",
+            "1000"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Normalize wt% to 100.",
+          "starter": "parts={'PDMS':92,'Filler':10,'Catalyst':0.2}\ntotal=sum(parts.values())\nprint({k:round(v*100/total,2) for k,v in parts.items()})",
+          "check_contains": "PDMS"
+        }
+      }
+    },
+    {
+      "day": 4,
+      "track": "Foundations",
+      "task": "CLI + logging basics",
+      "note": "Add structured logging; error handling; configs.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 4 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "wt% should sum to:",
+          "options": [
+            "100",
+            "1",
+            "1000"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Normalize wt% to 100.",
+          "starter": "parts={'PDMS':92,'Filler':10,'Catalyst':0.2}\ntotal=sum(parts.values())\nprint({k:round(v*100/total,2) for k,v in parts.items()})",
+          "check_contains": "PDMS"
+        }
+      }
+    },
+    {
+      "day": 5,
+      "track": "Foundations",
+      "task": "Testing + CI",
+      "note": "Add pytest + GitHub Actions smoke test.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 5 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "wt% should sum to:",
+          "options": [
+            "100",
+            "1",
+            "1000"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Normalize wt% to 100.",
+          "starter": "parts={'PDMS':92,'Filler':10,'Catalyst':0.2}\ntotal=sum(parts.values())\nprint({k:round(v*100/total,2) for k,v in parts.items()})",
+          "check_contains": "PDMS"
+        }
+      }
+    },
+    {
+      "day": 6,
+      "track": "Foundations",
+      "task": "Packaging",
+      "note": "Create a small installable module and entrypoints.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 6 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "wt% should sum to:",
+          "options": [
+            "100",
+            "1",
+            "1000"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Normalize wt% to 100.",
+          "starter": "parts={'PDMS':92,'Filler':10,'Catalyst':0.2}\ntotal=sum(parts.values())\nprint({k:round(v*100/total,2) for k,v in parts.items()})",
+          "check_contains": "PDMS"
+        }
+      }
+    },
+    {
+      "day": 7,
+      "track": "Foundations",
+      "task": "Notebook hygiene",
+      "note": "Parameterize notebooks; deterministic seeds.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 7 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "wt% should sum to:",
+          "options": [
+            "100",
+            "1",
+            "1000"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Normalize wt% to 100.",
+          "starter": "parts={'PDMS':92,'Filler':10,'Catalyst':0.2}\ntotal=sum(parts.values())\nprint({k:round(v*100/total,2) for k,v in parts.items()})",
+          "check_contains": "PDMS"
+        }
+      }
+    },
+    {
+      "day": 8,
+      "track": "Foundations",
+      "task": "Data I/O patterns",
+      "note": "CSV/JSON; schema validation; versioned artifacts.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 8 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "wt% should sum to:",
+          "options": [
+            "100",
+            "1",
+            "1000"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Normalize wt% to 100.",
+          "starter": "parts={'PDMS':92,'Filler':10,'Catalyst':0.2}\ntotal=sum(parts.values())\nprint({k:round(v*100/total,2) for k,v in parts.items()})",
+          "check_contains": "PDMS"
+        }
+      }
+    },
+    {
+      "day": 9,
+      "track": "Foundations",
+      "task": "Visualization",
+      "note": "Matplotlib; saving figures; report structure.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 9 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "wt% should sum to:",
+          "options": [
+            "100",
+            "1",
+            "1000"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Normalize wt% to 100.",
+          "starter": "parts={'PDMS':92,'Filler':10,'Catalyst':0.2}\ntotal=sum(parts.values())\nprint({k:round(v*100/total,2) for k,v in parts.items()})",
+          "check_contains": "PDMS"
+        }
+      }
+    },
+    {
+      "day": 10,
+      "track": "Foundations",
+      "task": "Checkpoint build (Formulation Calculator + unit-safe schema checks)",
+      "note": "Formulation Calculator + unit-safe schema checks",
+      "checkpoint": "Formulation Calculator + unit-safe schema checks",
+      "live_tasks": {
+        "todo": [
+          "Complete checkpoint deliverable: Formulation Calculator + unit-safe schema checks",
+          "Create an artifact for Day 10 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "wt% should sum to:",
+          "options": [
+            "100",
+            "1",
+            "1000"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Normalize wt% to 100.",
+          "starter": "parts={'PDMS':92,'Filler':10,'Catalyst':0.2}\ntotal=sum(parts.values())\nprint({k:round(v*100/total,2) for k,v in parts.items()})",
+          "check_contains": "PDMS"
+        }
+      }
+    },
+    {
+      "day": 11,
+      "track": "Data",
+      "task": "Large noisy datasets",
+      "note": "Missing data, censoring, robust parsing, data contracts.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 11 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Best join key practice:",
+          "options": [
+            "Primary/foreign keys",
+            "Random order",
+            "Manual copy/paste"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Group mean viscosity by lot (pandas).",
+          "starter": "import pandas as pd\ndf=pd.DataFrame({'lot':['A','A','B','B','B'],'visc_cP':[1200,1180,900,950,920]})\nprint(df.groupby('lot')['visc_cP'].mean())",
+          "check_contains": "A"
+        }
+      }
+    },
+    {
+      "day": 12,
+      "track": "Data",
+      "task": "Dataset versioning",
+      "note": "Hashing, lineage, DVC-lite conventions.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 12 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Best join key practice:",
+          "options": [
+            "Primary/foreign keys",
+            "Random order",
+            "Manual copy/paste"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Group mean viscosity by lot (pandas).",
+          "starter": "import pandas as pd\ndf=pd.DataFrame({'lot':['A','A','B','B','B'],'visc_cP':[1200,1180,900,950,920]})\nprint(df.groupby('lot')['visc_cP'].mean())",
+          "check_contains": "A"
+        }
+      }
+    },
+    {
+      "day": 13,
+      "track": "Data",
+      "task": "QC joins + provenance",
+      "note": "Keys, genealogy, batch metadata.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 13 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Best join key practice:",
+          "options": [
+            "Primary/foreign keys",
+            "Random order",
+            "Manual copy/paste"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Group mean viscosity by lot (pandas).",
+          "starter": "import pandas as pd\ndf=pd.DataFrame({'lot':['A','A','B','B','B'],'visc_cP':[1200,1180,900,950,920]})\nprint(df.groupby('lot')['visc_cP'].mean())",
+          "check_contains": "A"
+        }
+      }
+    },
+    {
+      "day": 14,
+      "track": "Data",
+      "task": "Outlier handling",
+      "note": "Robust stats; flags; auditability.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 14 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Best join key practice:",
+          "options": [
+            "Primary/foreign keys",
+            "Random order",
+            "Manual copy/paste"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Group mean viscosity by lot (pandas).",
+          "starter": "import pandas as pd\ndf=pd.DataFrame({'lot':['A','A','B','B','B'],'visc_cP':[1200,1180,900,950,920]})\nprint(df.groupby('lot')['visc_cP'].mean())",
+          "check_contains": "A"
+        }
+      }
+    },
+    {
+      "day": 15,
+      "track": "Data",
+      "task": "Feature store thinking",
+      "note": "Define feature tables for modeling.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 15 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Best join key practice:",
+          "options": [
+            "Primary/foreign keys",
+            "Random order",
+            "Manual copy/paste"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Group mean viscosity by lot (pandas).",
+          "starter": "import pandas as pd\ndf=pd.DataFrame({'lot':['A','A','B','B','B'],'visc_cP':[1200,1180,900,950,920]})\nprint(df.groupby('lot')['visc_cP'].mean())",
+          "check_contains": "A"
+        }
+      }
+    },
+    {
+      "day": 16,
+      "track": "Data",
+      "task": "Data validation pipelines",
+      "note": "Schema checks + constraint rules engine.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 16 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Best join key practice:",
+          "options": [
+            "Primary/foreign keys",
+            "Random order",
+            "Manual copy/paste"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Group mean viscosity by lot (pandas).",
+          "starter": "import pandas as pd\ndf=pd.DataFrame({'lot':['A','A','B','B','B'],'visc_cP':[1200,1180,900,950,920]})\nprint(df.groupby('lot')['visc_cP'].mean())",
+          "check_contains": "A"
+        }
+      }
+    },
+    {
+      "day": 17,
+      "track": "Data",
+      "task": "Time drift",
+      "note": "Temporal splits; leakage prevention.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 17 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Best join key practice:",
+          "options": [
+            "Primary/foreign keys",
+            "Random order",
+            "Manual copy/paste"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Group mean viscosity by lot (pandas).",
+          "starter": "import pandas as pd\ndf=pd.DataFrame({'lot':['A','A','B','B','B'],'visc_cP':[1200,1180,900,950,920]})\nprint(df.groupby('lot')['visc_cP'].mean())",
+          "check_contains": "A"
+        }
+      }
+    },
+    {
+      "day": 18,
+      "track": "Data",
+      "task": "Storage + formats",
+      "note": "Parquet/Arrow concepts; performant reads.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 18 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Best join key practice:",
+          "options": [
+            "Primary/foreign keys",
+            "Random order",
+            "Manual copy/paste"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Group mean viscosity by lot (pandas).",
+          "starter": "import pandas as pd\ndf=pd.DataFrame({'lot':['A','A','B','B','B'],'visc_cP':[1200,1180,900,950,920]})\nprint(df.groupby('lot')['visc_cP'].mean())",
+          "check_contains": "A"
+        }
+      }
+    },
+    {
+      "day": 19,
+      "track": "Data",
+      "task": "Experiment registry",
+      "note": "IDs, schemas, artifacts, metadata.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 19 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Best join key practice:",
+          "options": [
+            "Primary/foreign keys",
+            "Random order",
+            "Manual copy/paste"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Group mean viscosity by lot (pandas).",
+          "starter": "import pandas as pd\ndf=pd.DataFrame({'lot':['A','A','B','B','B'],'visc_cP':[1200,1180,900,950,920]})\nprint(df.groupby('lot')['visc_cP'].mean())",
+          "check_contains": "A"
+        }
+      }
+    },
+    {
+      "day": 20,
+      "track": "Data",
+      "task": "Checkpoint build (Batchbook + QC analytics notebook (noisy data handling))",
+      "note": "Batchbook + QC analytics notebook (noisy data handling)",
+      "checkpoint": "Batchbook + QC analytics notebook (noisy data handling)",
+      "live_tasks": {
+        "todo": [
+          "Complete checkpoint deliverable: Batchbook + QC analytics notebook (noisy data handling)",
+          "Create an artifact for Day 20 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Best join key practice:",
+          "options": [
+            "Primary/foreign keys",
+            "Random order",
+            "Manual copy/paste"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Group mean viscosity by lot (pandas).",
+          "starter": "import pandas as pd\ndf=pd.DataFrame({'lot':['A','A','B','B','B'],'visc_cP':[1200,1180,900,950,920]})\nprint(df.groupby('lot')['visc_cP'].mean())",
+          "check_contains": "A"
+        }
+      }
+    },
+    {
+      "day": 21,
+      "track": "Stats",
+      "task": "Modeling assumptions",
+      "note": "Distributions, transforms, noise models.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 21 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "RSM includes:",
+          "options": [
+            "Linear + quadratic + interactions",
+            "Only intercept",
+            "Only sine"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Least-squares line fit.",
+          "starter": "import numpy as np\nx=np.array([0,5,10,15],float)\ny=np.array([800,950,1200,1600],float)\nA=np.vstack([x,np.ones_like(x)]).T\nm,b=np.linalg.lstsq(A,y,rcond=None)[0]\nprint(round(m,2),round(b,2))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 22,
+      "track": "Stats",
+      "task": "Uncertainty",
+      "note": "Bootstrapping, confidence intervals.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 22 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "RSM includes:",
+          "options": [
+            "Linear + quadratic + interactions",
+            "Only intercept",
+            "Only sine"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Least-squares line fit.",
+          "starter": "import numpy as np\nx=np.array([0,5,10,15],float)\ny=np.array([800,950,1200,1600],float)\nA=np.vstack([x,np.ones_like(x)]).T\nm,b=np.linalg.lstsq(A,y,rcond=None)[0]\nprint(round(m,2),round(b,2))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 23,
+      "track": "Stats",
+      "task": "ANOVA/DoE framing",
+      "note": "Factorial design and effect estimates.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 23 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "RSM includes:",
+          "options": [
+            "Linear + quadratic + interactions",
+            "Only intercept",
+            "Only sine"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Least-squares line fit.",
+          "starter": "import numpy as np\nx=np.array([0,5,10,15],float)\ny=np.array([800,950,1200,1600],float)\nA=np.vstack([x,np.ones_like(x)]).T\nm,b=np.linalg.lstsq(A,y,rcond=None)[0]\nprint(round(m,2),round(b,2))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 24,
+      "track": "Stats",
+      "task": "Interactions",
+      "note": "Nonlinearity; interpret interactions.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 24 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "RSM includes:",
+          "options": [
+            "Linear + quadratic + interactions",
+            "Only intercept",
+            "Only sine"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Least-squares line fit.",
+          "starter": "import numpy as np\nx=np.array([0,5,10,15],float)\ny=np.array([800,950,1200,1600],float)\nA=np.vstack([x,np.ones_like(x)]).T\nm,b=np.linalg.lstsq(A,y,rcond=None)[0]\nprint(round(m,2),round(b,2))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 25,
+      "track": "Stats",
+      "task": "Response surfaces",
+      "note": "Quadratic models + ridge analysis.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 25 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "RSM includes:",
+          "options": [
+            "Linear + quadratic + interactions",
+            "Only intercept",
+            "Only sine"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Least-squares line fit.",
+          "starter": "import numpy as np\nx=np.array([0,5,10,15],float)\ny=np.array([800,950,1200,1600],float)\nA=np.vstack([x,np.ones_like(x)]).T\nm,b=np.linalg.lstsq(A,y,rcond=None)[0]\nprint(round(m,2),round(b,2))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 26,
+      "track": "Stats",
+      "task": "Diagnostics",
+      "note": "Residuals, leverage, influence.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 26 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "RSM includes:",
+          "options": [
+            "Linear + quadratic + interactions",
+            "Only intercept",
+            "Only sine"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Least-squares line fit.",
+          "starter": "import numpy as np\nx=np.array([0,5,10,15],float)\ny=np.array([800,950,1200,1600],float)\nA=np.vstack([x,np.ones_like(x)]).T\nm,b=np.linalg.lstsq(A,y,rcond=None)[0]\nprint(round(m,2),round(b,2))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 27,
+      "track": "Stats",
+      "task": "Power/replicates",
+      "note": "How many experiments?",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 27 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "RSM includes:",
+          "options": [
+            "Linear + quadratic + interactions",
+            "Only intercept",
+            "Only sine"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Least-squares line fit.",
+          "starter": "import numpy as np\nx=np.array([0,5,10,15],float)\ny=np.array([800,950,1200,1600],float)\nA=np.vstack([x,np.ones_like(x)]).T\nm,b=np.linalg.lstsq(A,y,rcond=None)[0]\nprint(round(m,2),round(b,2))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 28,
+      "track": "Stats",
+      "task": "Reporting",
+      "note": "Effect plots + narrative.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 28 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "RSM includes:",
+          "options": [
+            "Linear + quadratic + interactions",
+            "Only intercept",
+            "Only sine"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Least-squares line fit.",
+          "starter": "import numpy as np\nx=np.array([0,5,10,15],float)\ny=np.array([800,950,1200,1600],float)\nA=np.vstack([x,np.ones_like(x)]).T\nm,b=np.linalg.lstsq(A,y,rcond=None)[0]\nprint(round(m,2),round(b,2))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 29,
+      "track": "Stats",
+      "task": "From DoE to BO",
+      "note": "Why DoE precedes Bayesian optimization.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 29 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "RSM includes:",
+          "options": [
+            "Linear + quadratic + interactions",
+            "Only intercept",
+            "Only sine"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Least-squares line fit.",
+          "starter": "import numpy as np\nx=np.array([0,5,10,15],float)\ny=np.array([800,950,1200,1600],float)\nA=np.vstack([x,np.ones_like(x)]).T\nm,b=np.linalg.lstsq(A,y,rcond=None)[0]\nprint(round(m,2),round(b,2))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 30,
+      "track": "Stats",
+      "task": "Checkpoint build (DoE + response-surface modeling template)",
+      "note": "DoE + response-surface modeling template",
+      "checkpoint": "DoE + response-surface modeling template",
+      "live_tasks": {
+        "todo": [
+          "Complete checkpoint deliverable: DoE + response-surface modeling template",
+          "Create an artifact for Day 30 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "RSM includes:",
+          "options": [
+            "Linear + quadratic + interactions",
+            "Only intercept",
+            "Only sine"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Least-squares line fit.",
+          "starter": "import numpy as np\nx=np.array([0,5,10,15],float)\ny=np.array([800,950,1200,1600],float)\nA=np.vstack([x,np.ones_like(x)]).T\nm,b=np.linalg.lstsq(A,y,rcond=None)[0]\nprint(round(m,2),round(b,2))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 31,
+      "track": "Polymer",
+      "task": "Polymer-aware representations",
+      "note": "Repeat units, end groups, DP; BigSMILES mindset.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 31 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "PDI is:",
+          "options": [
+            "Mw/Mn",
+            "Mn/Mw",
+            "Mw-Mn"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Compute Mn, Mw, PDI from toy DP distribution.",
+          "starter": "import numpy as np\ndp=np.arange(1,301)\nprob=np.exp(-dp/60);prob=prob/prob.sum()\nMn=(dp*prob).sum();Mw=(dp**2*prob).sum()/(dp*prob).sum();PDI=Mw/Mn\nprint(round(Mn,2),round(Mw,2),round(PDI,3))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 32,
+      "track": "Polymer",
+      "task": "Functional group counting",
+      "note": "Vinyl/Si-H/OH bookkeeping; equivalents.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 32 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "PDI is:",
+          "options": [
+            "Mw/Mn",
+            "Mn/Mw",
+            "Mw-Mn"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Compute Mn, Mw, PDI from toy DP distribution.",
+          "starter": "import numpy as np\ndp=np.arange(1,301)\nprob=np.exp(-dp/60);prob=prob/prob.sum()\nMn=(dp*prob).sum();Mw=(dp**2*prob).sum()/(dp*prob).sum();PDI=Mw/Mn\nprint(round(Mn,2),round(Mw,2),round(PDI,3))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 33,
+      "track": "Polymer",
+      "task": "RDKit boundary",
+      "note": "RDKit for fragments; polymers via custom schema.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 33 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "PDI is:",
+          "options": [
+            "Mw/Mn",
+            "Mn/Mw",
+            "Mw-Mn"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Compute Mn, Mw, PDI from toy DP distribution.",
+          "starter": "import numpy as np\ndp=np.arange(1,301)\nprob=np.exp(-dp/60);prob=prob/prob.sum()\nMn=(dp*prob).sum();Mw=(dp**2*prob).sum()/(dp*prob).sum();PDI=Mw/Mn\nprint(round(Mn,2),round(Mw,2),round(PDI,3))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 34,
+      "track": "Polymer",
+      "task": "Sampling distributions",
+      "note": "Mn/Mw/PDI simulations.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 34 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "PDI is:",
+          "options": [
+            "Mw/Mn",
+            "Mn/Mw",
+            "Mw-Mn"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Compute Mn, Mw, PDI from toy DP distribution.",
+          "starter": "import numpy as np\ndp=np.arange(1,301)\nprob=np.exp(-dp/60);prob=prob/prob.sum()\nMn=(dp*prob).sum();Mw=(dp**2*prob).sum()/(dp*prob).sum();PDI=Mw/Mn\nprint(round(Mn,2),round(Mw,2),round(PDI,3))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 35,
+      "track": "Polymer",
+      "task": "Mixtures",
+      "note": "Blends/resins/fillers\u2014encode compositions.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 35 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "PDI is:",
+          "options": [
+            "Mw/Mn",
+            "Mn/Mw",
+            "Mw-Mn"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Compute Mn, Mw, PDI from toy DP distribution.",
+          "starter": "import numpy as np\ndp=np.arange(1,301)\nprob=np.exp(-dp/60);prob=prob/prob.sum()\nMn=(dp*prob).sum();Mw=(dp**2*prob).sum()/(dp*prob).sum();PDI=Mw/Mn\nprint(round(Mn,2),round(Mw,2),round(PDI,3))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 36,
+      "track": "Polymer",
+      "task": "Schema evolution",
+      "note": "Version your representation.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 36 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "PDI is:",
+          "options": [
+            "Mw/Mn",
+            "Mn/Mw",
+            "Mw-Mn"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Compute Mn, Mw, PDI from toy DP distribution.",
+          "starter": "import numpy as np\ndp=np.arange(1,301)\nprob=np.exp(-dp/60);prob=prob/prob.sum()\nMn=(dp*prob).sum();Mw=(dp**2*prob).sum()/(dp*prob).sum();PDI=Mw/Mn\nprint(round(Mn,2),round(Mw,2),round(PDI,3))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 37,
+      "track": "Polymer",
+      "task": "Serialization",
+      "note": "JSON schema + validators.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 37 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "PDI is:",
+          "options": [
+            "Mw/Mn",
+            "Mn/Mw",
+            "Mw-Mn"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Compute Mn, Mw, PDI from toy DP distribution.",
+          "starter": "import numpy as np\ndp=np.arange(1,301)\nprob=np.exp(-dp/60);prob=prob/prob.sum()\nMn=(dp*prob).sum();Mw=(dp**2*prob).sum()/(dp*prob).sum();PDI=Mw/Mn\nprint(round(Mn,2),round(Mw,2),round(PDI,3))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 38,
+      "track": "Polymer",
+      "task": "Property annotations",
+      "note": "Attach measured/predicted properties.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 38 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "PDI is:",
+          "options": [
+            "Mw/Mn",
+            "Mn/Mw",
+            "Mw-Mn"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Compute Mn, Mw, PDI from toy DP distribution.",
+          "starter": "import numpy as np\ndp=np.arange(1,301)\nprob=np.exp(-dp/60);prob=prob/prob.sum()\nMn=(dp*prob).sum();Mw=(dp**2*prob).sum()/(dp*prob).sum();PDI=Mw/Mn\nprint(round(Mn,2),round(Mw,2),round(PDI,3))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 39,
+      "track": "Polymer",
+      "task": "Interfacing to ML",
+      "note": "Featurization from schema.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 39 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "PDI is:",
+          "options": [
+            "Mw/Mn",
+            "Mn/Mw",
+            "Mw-Mn"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Compute Mn, Mw, PDI from toy DP distribution.",
+          "starter": "import numpy as np\ndp=np.arange(1,301)\nprob=np.exp(-dp/60);prob=prob/prob.sum()\nMn=(dp*prob).sum();Mw=(dp**2*prob).sum()/(dp*prob).sum();PDI=Mw/Mn\nprint(round(Mn,2),round(Mw,2),round(PDI,3))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 40,
+      "track": "Polymer",
+      "task": "Checkpoint build (SiloxaneSpec: polymer-aware representation + functional group bookkeeping)",
+      "note": "SiloxaneSpec: polymer-aware representation + functional group bookkeeping",
+      "checkpoint": "SiloxaneSpec: polymer-aware representation + functional group bookkeeping",
+      "live_tasks": {
+        "todo": [
+          "Complete checkpoint deliverable: SiloxaneSpec: polymer-aware representation + functional group bookkeeping",
+          "Create an artifact for Day 40 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "PDI is:",
+          "options": [
+            "Mw/Mn",
+            "Mn/Mw",
+            "Mw-Mn"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Compute Mn, Mw, PDI from toy DP distribution.",
+          "starter": "import numpy as np\ndp=np.arange(1,301)\nprob=np.exp(-dp/60);prob=prob/prob.sum()\nMn=(dp*prob).sum();Mw=(dp**2*prob).sum()/(dp*prob).sum();PDI=Mw/Mn\nprint(round(Mn,2),round(Mw,2),round(PDI,3))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 41,
+      "track": "Kinetics",
+      "task": "ODEs",
+      "note": "Implement/validate ODE solvers; unit checks.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 41 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Arrhenius links k to:",
+          "options": [
+            "Temperature",
+            "Pressure only",
+            "Color"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Euler step for dX/dt=k(1-X).",
+          "starter": "k=0.02\nX=0.0\nfor _ in range(2000):\n    X += k*(1-X)\nprint(round(X,4))",
+          "check_contains": "0."
+        }
+      }
+    },
+    {
+      "day": 42,
+      "track": "Kinetics",
+      "task": "Hydrosilylation kinetics",
+      "note": "Simplified rate laws + inhibition.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 42 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Arrhenius links k to:",
+          "options": [
+            "Temperature",
+            "Pressure only",
+            "Color"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Euler step for dX/dt=k(1-X).",
+          "starter": "k=0.02\nX=0.0\nfor _ in range(2000):\n    X += k*(1-X)\nprint(round(X,4))",
+          "check_contains": "0."
+        }
+      }
+    },
+    {
+      "day": 43,
+      "track": "Kinetics",
+      "task": "Arrhenius fitting",
+      "note": "Parameter estimation; identifiability.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 43 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Arrhenius links k to:",
+          "options": [
+            "Temperature",
+            "Pressure only",
+            "Color"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Euler step for dX/dt=k(1-X).",
+          "starter": "k=0.02\nX=0.0\nfor _ in range(2000):\n    X += k*(1-X)\nprint(round(X,4))",
+          "check_contains": "0."
+        }
+      }
+    },
+    {
+      "day": 44,
+      "track": "Kinetics",
+      "task": "Noisy curves",
+      "note": "Smoothing vs bias; robust fitting.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 44 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Arrhenius links k to:",
+          "options": [
+            "Temperature",
+            "Pressure only",
+            "Color"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Euler step for dX/dt=k(1-X).",
+          "starter": "k=0.02\nX=0.0\nfor _ in range(2000):\n    X += k*(1-X)\nprint(round(X,4))",
+          "check_contains": "0."
+        }
+      }
+    },
+    {
+      "day": 45,
+      "track": "Kinetics",
+      "task": "Uncertainty",
+      "note": "Confidence on k, Ea.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 45 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Arrhenius links k to:",
+          "options": [
+            "Temperature",
+            "Pressure only",
+            "Color"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Euler step for dX/dt=k(1-X).",
+          "starter": "k=0.02\nX=0.0\nfor _ in range(2000):\n    X += k*(1-X)\nprint(round(X,4))",
+          "check_contains": "0."
+        }
+      }
+    },
+    {
+      "day": 46,
+      "track": "Kinetics",
+      "task": "Bayesian fitting (optional)",
+      "note": "Posterior intuition.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 46 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Arrhenius links k to:",
+          "options": [
+            "Temperature",
+            "Pressure only",
+            "Color"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Euler step for dX/dt=k(1-X).",
+          "starter": "k=0.02\nX=0.0\nfor _ in range(2000):\n    X += k*(1-X)\nprint(round(X,4))",
+          "check_contains": "0."
+        }
+      }
+    },
+    {
+      "day": 47,
+      "track": "Kinetics",
+      "task": "Model selection",
+      "note": "Compare alternative rate laws.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 47 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Arrhenius links k to:",
+          "options": [
+            "Temperature",
+            "Pressure only",
+            "Color"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Euler step for dX/dt=k(1-X).",
+          "starter": "k=0.02\nX=0.0\nfor _ in range(2000):\n    X += k*(1-X)\nprint(round(X,4))",
+          "check_contains": "0."
+        }
+      }
+    },
+    {
+      "day": 48,
+      "track": "Kinetics",
+      "task": "Coupling to properties",
+      "note": "Conversion \u2192 viscosity/gel proxy.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 48 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Arrhenius links k to:",
+          "options": [
+            "Temperature",
+            "Pressure only",
+            "Color"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Euler step for dX/dt=k(1-X).",
+          "starter": "k=0.02\nX=0.0\nfor _ in range(2000):\n    X += k*(1-X)\nprint(round(X,4))",
+          "check_contains": "0."
+        }
+      }
+    },
+    {
+      "day": 49,
+      "track": "Kinetics",
+      "task": "Experiment design",
+      "note": "Choose temps/times to learn parameters.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 49 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Arrhenius links k to:",
+          "options": [
+            "Temperature",
+            "Pressure only",
+            "Color"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Euler step for dX/dt=k(1-X).",
+          "starter": "k=0.02\nX=0.0\nfor _ in range(2000):\n    X += k*(1-X)\nprint(round(X,4))",
+          "check_contains": "0."
+        }
+      }
+    },
+    {
+      "day": 50,
+      "track": "Kinetics",
+      "task": "Checkpoint build (Cure kinetics model (ODE fit + Arrhenius + uncertainty))",
+      "note": "Cure kinetics model (ODE fit + Arrhenius + uncertainty)",
+      "checkpoint": "Cure kinetics model (ODE fit + Arrhenius + uncertainty)",
+      "live_tasks": {
+        "todo": [
+          "Complete checkpoint deliverable: Cure kinetics model (ODE fit + Arrhenius + uncertainty)",
+          "Create an artifact for Day 50 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Arrhenius links k to:",
+          "options": [
+            "Temperature",
+            "Pressure only",
+            "Color"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Euler step for dX/dt=k(1-X).",
+          "starter": "k=0.02\nX=0.0\nfor _ in range(2000):\n    X += k*(1-X)\nprint(round(X,4))",
+          "check_contains": "0."
+        }
+      }
+    },
+    {
+      "day": 51,
+      "track": "Properties",
+      "task": "Viscosity models",
+      "note": "Mixing rules; scaling; log space.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 51 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Hard constraint means:",
+          "options": [
+            "Must be satisfied",
+            "Optional",
+            "Ignored"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "BOM cost per kg.",
+          "starter": "form={'PDMS':0.9,'Filler':0.09,'Catalyst':0.01}\ncost={'PDMS':6.0,'Filler':2.0,'Catalyst':120.0}\nprint(round(sum(form[k]*cost[k] for k in form),2))",
+          "check_contains": "."
+        }
+      }
+    },
+    {
+      "day": 52,
+      "track": "Properties",
+      "task": "Thermodynamics hooks",
+      "note": "Activity/phase behavior placeholders.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 52 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Hard constraint means:",
+          "options": [
+            "Must be satisfied",
+            "Optional",
+            "Ignored"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "BOM cost per kg.",
+          "starter": "form={'PDMS':0.9,'Filler':0.09,'Catalyst':0.01}\ncost={'PDMS':6.0,'Filler':2.0,'Catalyst':120.0}\nprint(round(sum(form[k]*cost[k] for k in form),2))",
+          "check_contains": "."
+        }
+      }
+    },
+    {
+      "day": 53,
+      "track": "Properties",
+      "task": "Phase diagrams",
+      "note": "Binary miscibility concepts; sampling grids.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 53 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Hard constraint means:",
+          "options": [
+            "Must be satisfied",
+            "Optional",
+            "Ignored"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "BOM cost per kg.",
+          "starter": "form={'PDMS':0.9,'Filler':0.09,'Catalyst':0.01}\ncost={'PDMS':6.0,'Filler':2.0,'Catalyst':120.0}\nprint(round(sum(form[k]*cost[k] for k in form),2))",
+          "check_contains": "."
+        }
+      }
+    },
+    {
+      "day": 54,
+      "track": "Properties",
+      "task": "Hydrogen bonding effects",
+      "note": "Feature flags; proxy descriptors.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 54 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Hard constraint means:",
+          "options": [
+            "Must be satisfied",
+            "Optional",
+            "Ignored"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "BOM cost per kg.",
+          "starter": "form={'PDMS':0.9,'Filler':0.09,'Catalyst':0.01}\ncost={'PDMS':6.0,'Filler':2.0,'Catalyst':120.0}\nprint(round(sum(form[k]*cost[k] for k in form),2))",
+          "check_contains": "."
+        }
+      }
+    },
+    {
+      "day": 55,
+      "track": "Properties",
+      "task": "Cost + constraints",
+      "note": "BOM + performance constraints.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 55 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Hard constraint means:",
+          "options": [
+            "Must be satisfied",
+            "Optional",
+            "Ignored"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "BOM cost per kg.",
+          "starter": "form={'PDMS':0.9,'Filler':0.09,'Catalyst':0.01}\ncost={'PDMS':6.0,'Filler':2.0,'Catalyst':120.0}\nprint(round(sum(form[k]*cost[k] for k in form),2))",
+          "check_contains": "."
+        }
+      }
+    },
+    {
+      "day": 56,
+      "track": "Properties",
+      "task": "Unit-safe calculators",
+      "note": "pint patterns (concept).",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 56 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Hard constraint means:",
+          "options": [
+            "Must be satisfied",
+            "Optional",
+            "Ignored"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "BOM cost per kg.",
+          "starter": "form={'PDMS':0.9,'Filler':0.09,'Catalyst':0.01}\ncost={'PDMS':6.0,'Filler':2.0,'Catalyst':120.0}\nprint(round(sum(form[k]*cost[k] for k in form),2))",
+          "check_contains": "."
+        }
+      }
+    },
+    {
+      "day": 57,
+      "track": "Properties",
+      "task": "Calibration",
+      "note": "Fit empirical models to data.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 57 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Hard constraint means:",
+          "options": [
+            "Must be satisfied",
+            "Optional",
+            "Ignored"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "BOM cost per kg.",
+          "starter": "form={'PDMS':0.9,'Filler':0.09,'Catalyst':0.01}\ncost={'PDMS':6.0,'Filler':2.0,'Catalyst':120.0}\nprint(round(sum(form[k]*cost[k] for k in form),2))",
+          "check_contains": "."
+        }
+      }
+    },
+    {
+      "day": 58,
+      "track": "Properties",
+      "task": "Model cards",
+      "note": "Assumptions & validity range.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 58 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Hard constraint means:",
+          "options": [
+            "Must be satisfied",
+            "Optional",
+            "Ignored"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "BOM cost per kg.",
+          "starter": "form={'PDMS':0.9,'Filler':0.09,'Catalyst':0.01}\ncost={'PDMS':6.0,'Filler':2.0,'Catalyst':120.0}\nprint(round(sum(form[k]*cost[k] for k in form),2))",
+          "check_contains": "."
+        }
+      }
+    },
+    {
+      "day": 59,
+      "track": "Properties",
+      "task": "Packaging",
+      "note": "Expose as stable API.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 59 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Hard constraint means:",
+          "options": [
+            "Must be satisfied",
+            "Optional",
+            "Ignored"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "BOM cost per kg.",
+          "starter": "form={'PDMS':0.9,'Filler':0.09,'Catalyst':0.01}\ncost={'PDMS':6.0,'Filler':2.0,'Catalyst':120.0}\nprint(round(sum(form[k]*cost[k] for k in form),2))",
+          "check_contains": "."
+        }
+      }
+    },
+    {
+      "day": 60,
+      "track": "Properties",
+      "task": "Checkpoint build (Property & cost scorer (constraints + BOM rollup))",
+      "note": "Property & cost scorer (constraints + BOM rollup)",
+      "checkpoint": "Property & cost scorer (constraints + BOM rollup)",
+      "live_tasks": {
+        "todo": [
+          "Complete checkpoint deliverable: Property & cost scorer (constraints + BOM rollup)",
+          "Create an artifact for Day 60 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Hard constraint means:",
+          "options": [
+            "Must be satisfied",
+            "Optional",
+            "Ignored"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "BOM cost per kg.",
+          "starter": "form={'PDMS':0.9,'Filler':0.09,'Catalyst':0.01}\ncost={'PDMS':6.0,'Filler':2.0,'Catalyst':120.0}\nprint(round(sum(form[k]*cost[k] for k in form),2))",
+          "check_contains": "."
+        }
+      }
+    },
+    {
+      "day": 61,
+      "track": "ML",
+      "task": "Torch training loop",
+      "note": "Dataset/Dataloader patterns (concept).",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 61 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Tracking tools store:",
+          "options": [
+            "Metrics/params/artifacts",
+            "Emails",
+            "Invoices"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Baseline regression coeffs.",
+          "starter": "import numpy as np\nx=np.linspace(0,1,20)\ny=3*x+0.1*np.random.randn(20)\nA=np.vstack([x,np.ones_like(x)]).T\nm,b=np.linalg.lstsq(A,y,rcond=None)[0]\nprint('m=',round(m,2),'b=',round(b,2))",
+          "check_contains": "m="
+        }
+      }
+    },
+    {
+      "day": 62,
+      "track": "ML",
+      "task": "Reproducibility",
+      "note": "Seeds, determinism, artifact logging.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 62 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Tracking tools store:",
+          "options": [
+            "Metrics/params/artifacts",
+            "Emails",
+            "Invoices"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Baseline regression coeffs.",
+          "starter": "import numpy as np\nx=np.linspace(0,1,20)\ny=3*x+0.1*np.random.randn(20)\nA=np.vstack([x,np.ones_like(x)]).T\nm,b=np.linalg.lstsq(A,y,rcond=None)[0]\nprint('m=',round(m,2),'b=',round(b,2))",
+          "check_contains": "m="
+        }
+      }
+    },
+    {
+      "day": 63,
+      "track": "ML",
+      "task": "Experiment tracking",
+      "note": "W&B/MLflow: params, metrics, artifacts.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 63 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Tracking tools store:",
+          "options": [
+            "Metrics/params/artifacts",
+            "Emails",
+            "Invoices"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Baseline regression coeffs.",
+          "starter": "import numpy as np\nx=np.linspace(0,1,20)\ny=3*x+0.1*np.random.randn(20)\nA=np.vstack([x,np.ones_like(x)]).T\nm,b=np.linalg.lstsq(A,y,rcond=None)[0]\nprint('m=',round(m,2),'b=',round(b,2))",
+          "check_contains": "m="
+        }
+      }
+    },
+    {
+      "day": 64,
+      "track": "ML",
+      "task": "Hyperparameter search",
+      "note": "Optuna patterns (concept).",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 64 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Tracking tools store:",
+          "options": [
+            "Metrics/params/artifacts",
+            "Emails",
+            "Invoices"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Baseline regression coeffs.",
+          "starter": "import numpy as np\nx=np.linspace(0,1,20)\ny=3*x+0.1*np.random.randn(20)\nA=np.vstack([x,np.ones_like(x)]).T\nm,b=np.linalg.lstsq(A,y,rcond=None)[0]\nprint('m=',round(m,2),'b=',round(b,2))",
+          "check_contains": "m="
+        }
+      }
+    },
+    {
+      "day": 65,
+      "track": "ML",
+      "task": "RDKit features",
+      "note": "Fingerprints for fragments (concept).",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 65 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Tracking tools store:",
+          "options": [
+            "Metrics/params/artifacts",
+            "Emails",
+            "Invoices"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Baseline regression coeffs.",
+          "starter": "import numpy as np\nx=np.linspace(0,1,20)\ny=3*x+0.1*np.random.randn(20)\nA=np.vstack([x,np.ones_like(x)]).T\nm,b=np.linalg.lstsq(A,y,rcond=None)[0]\nprint('m=',round(m,2),'b=',round(b,2))",
+          "check_contains": "m="
+        }
+      }
+    },
+    {
+      "day": 66,
+      "track": "ML",
+      "task": "Large data",
+      "note": "Chunking, caching, streaming patterns.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 66 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Tracking tools store:",
+          "options": [
+            "Metrics/params/artifacts",
+            "Emails",
+            "Invoices"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Baseline regression coeffs.",
+          "starter": "import numpy as np\nx=np.linspace(0,1,20)\ny=3*x+0.1*np.random.randn(20)\nA=np.vstack([x,np.ones_like(x)]).T\nm,b=np.linalg.lstsq(A,y,rcond=None)[0]\nprint('m=',round(m,2),'b=',round(b,2))",
+          "check_contains": "m="
+        }
+      }
+    },
+    {
+      "day": 67,
+      "track": "ML",
+      "task": "Evaluation",
+      "note": "Splits, leakage, uncertainty.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 67 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Tracking tools store:",
+          "options": [
+            "Metrics/params/artifacts",
+            "Emails",
+            "Invoices"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Baseline regression coeffs.",
+          "starter": "import numpy as np\nx=np.linspace(0,1,20)\ny=3*x+0.1*np.random.randn(20)\nA=np.vstack([x,np.ones_like(x)]).T\nm,b=np.linalg.lstsq(A,y,rcond=None)[0]\nprint('m=',round(m,2),'b=',round(b,2))",
+          "check_contains": "m="
+        }
+      }
+    },
+    {
+      "day": 68,
+      "track": "ML",
+      "task": "Deployment",
+      "note": "Model packaging + inference schema.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 68 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Tracking tools store:",
+          "options": [
+            "Metrics/params/artifacts",
+            "Emails",
+            "Invoices"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Baseline regression coeffs.",
+          "starter": "import numpy as np\nx=np.linspace(0,1,20)\ny=3*x+0.1*np.random.randn(20)\nA=np.vstack([x,np.ones_like(x)]).T\nm,b=np.linalg.lstsq(A,y,rcond=None)[0]\nprint('m=',round(m,2),'b=',round(b,2))",
+          "check_contains": "m="
+        }
+      }
+    },
+    {
+      "day": 69,
+      "track": "ML",
+      "task": "Monitoring",
+      "note": "Drift signals; retrain triggers.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 69 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Tracking tools store:",
+          "options": [
+            "Metrics/params/artifacts",
+            "Emails",
+            "Invoices"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Baseline regression coeffs.",
+          "starter": "import numpy as np\nx=np.linspace(0,1,20)\ny=3*x+0.1*np.random.randn(20)\nA=np.vstack([x,np.ones_like(x)]).T\nm,b=np.linalg.lstsq(A,y,rcond=None)[0]\nprint('m=',round(m,2),'b=',round(b,2))",
+          "check_contains": "m="
+        }
+      }
+    },
+    {
+      "day": 70,
+      "track": "ML",
+      "task": "Checkpoint build (Property predictor (PyTorch-style patterns) + experiment tracking (W&B/MLflow hooks))",
+      "note": "Property predictor (PyTorch-style patterns) + experiment tracking (W&B/MLflow hooks)",
+      "checkpoint": "Property predictor (PyTorch-style patterns) + experiment tracking (W&B/MLflow hooks)",
+      "live_tasks": {
+        "todo": [
+          "Complete checkpoint deliverable: Property predictor (PyTorch-style patterns) + experiment tracking (W&B/MLflow hooks)",
+          "Create an artifact for Day 70 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Tracking tools store:",
+          "options": [
+            "Metrics/params/artifacts",
+            "Emails",
+            "Invoices"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Baseline regression coeffs.",
+          "starter": "import numpy as np\nx=np.linspace(0,1,20)\ny=3*x+0.1*np.random.randn(20)\nA=np.vstack([x,np.ones_like(x)]).T\nm,b=np.linalg.lstsq(A,y,rcond=None)[0]\nprint('m=',round(m,2),'b=',round(b,2))",
+          "check_contains": "m="
+        }
+      }
+    },
+    {
+      "day": 71,
+      "track": "Optimization",
+      "task": "Random/grid baselines",
+      "note": "Establish baselines before BO.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 71 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "BO uses:",
+          "options": [
+            "Surrogate + acquisition",
+            "Only brute force",
+            "Only gradients"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Random search minimization.",
+          "starter": "import random\nbest=None\nfor _ in range(2000):\n    x=random.uniform(-5,5); y=random.uniform(-5,5)\n    f=(x-2)**2+(y+1)**2\n    if best is None or f<best[0]: best=(f,x,y)\nprint(round(best[0],4),round(best[1],2),round(best[2],2))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 72,
+      "track": "Optimization",
+      "task": "Bayesian optimization",
+      "note": "Surrogate + acquisition function.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 72 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "BO uses:",
+          "options": [
+            "Surrogate + acquisition",
+            "Only brute force",
+            "Only gradients"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Random search minimization.",
+          "starter": "import random\nbest=None\nfor _ in range(2000):\n    x=random.uniform(-5,5); y=random.uniform(-5,5)\n    f=(x-2)**2+(y+1)**2\n    if best is None or f<best[0]: best=(f,x,y)\nprint(round(best[0],4),round(best[1],2),round(best[2],2))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 73,
+      "track": "Optimization",
+      "task": "Constraints",
+      "note": "Feasible BO; penalties.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 73 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "BO uses:",
+          "options": [
+            "Surrogate + acquisition",
+            "Only brute force",
+            "Only gradients"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Random search minimization.",
+          "starter": "import random\nbest=None\nfor _ in range(2000):\n    x=random.uniform(-5,5); y=random.uniform(-5,5)\n    f=(x-2)**2+(y+1)**2\n    if best is None or f<best[0]: best=(f,x,y)\nprint(round(best[0],4),round(best[1],2),round(best[2],2))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 74,
+      "track": "Optimization",
+      "task": "Active learning",
+      "note": "Batch selection; diversity.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 74 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "BO uses:",
+          "options": [
+            "Surrogate + acquisition",
+            "Only brute force",
+            "Only gradients"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Random search minimization.",
+          "starter": "import random\nbest=None\nfor _ in range(2000):\n    x=random.uniform(-5,5); y=random.uniform(-5,5)\n    f=(x-2)**2+(y+1)**2\n    if best is None or f<best[0]: best=(f,x,y)\nprint(round(best[0],4),round(best[1],2),round(best[2],2))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 75,
+      "track": "Optimization",
+      "task": "Failure modes",
+      "note": "Invalid experiments as labels.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 75 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "BO uses:",
+          "options": [
+            "Surrogate + acquisition",
+            "Only brute force",
+            "Only gradients"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Random search minimization.",
+          "starter": "import random\nbest=None\nfor _ in range(2000):\n    x=random.uniform(-5,5); y=random.uniform(-5,5)\n    f=(x-2)**2+(y+1)**2\n    if best is None or f<best[0]: best=(f,x,y)\nprint(round(best[0],4),round(best[1],2),round(best[2],2))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 76,
+      "track": "Optimization",
+      "task": "Multi-objective",
+      "note": "Pareto fronts.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 76 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "BO uses:",
+          "options": [
+            "Surrogate + acquisition",
+            "Only brute force",
+            "Only gradients"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Random search minimization.",
+          "starter": "import random\nbest=None\nfor _ in range(2000):\n    x=random.uniform(-5,5); y=random.uniform(-5,5)\n    f=(x-2)**2+(y+1)**2\n    if best is None or f<best[0]: best=(f,x,y)\nprint(round(best[0],4),round(best[1],2),round(best[2],2))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 77,
+      "track": "Optimization",
+      "task": "RL framing (optional)",
+      "note": "Sequential decision making.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 77 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "BO uses:",
+          "options": [
+            "Surrogate + acquisition",
+            "Only brute force",
+            "Only gradients"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Random search minimization.",
+          "starter": "import random\nbest=None\nfor _ in range(2000):\n    x=random.uniform(-5,5); y=random.uniform(-5,5)\n    f=(x-2)**2+(y+1)**2\n    if best is None or f<best[0]: best=(f,x,y)\nprint(round(best[0],4),round(best[1],2),round(best[2],2))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 78,
+      "track": "Optimization",
+      "task": "Campaign orchestration",
+      "note": "Queue, metadata, reproducibility.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 78 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "BO uses:",
+          "options": [
+            "Surrogate + acquisition",
+            "Only brute force",
+            "Only gradients"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Random search minimization.",
+          "starter": "import random\nbest=None\nfor _ in range(2000):\n    x=random.uniform(-5,5); y=random.uniform(-5,5)\n    f=(x-2)**2+(y+1)**2\n    if best is None or f<best[0]: best=(f,x,y)\nprint(round(best[0],4),round(best[1],2),round(best[2],2))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 79,
+      "track": "Optimization",
+      "task": "Cloud/HPC hooks",
+      "note": "Batch jobs; containers; configs.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 79 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "BO uses:",
+          "options": [
+            "Surrogate + acquisition",
+            "Only brute force",
+            "Only gradients"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Random search minimization.",
+          "starter": "import random\nbest=None\nfor _ in range(2000):\n    x=random.uniform(-5,5); y=random.uniform(-5,5)\n    f=(x-2)**2+(y+1)**2\n    if best is None or f<best[0]: best=(f,x,y)\nprint(round(best[0],4),round(best[1],2),round(best[2],2))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 80,
+      "track": "Optimization",
+      "task": "Checkpoint build (Active-learning campaign runner (Optuna/BO loop) with failure modes)",
+      "note": "Active-learning campaign runner (Optuna/BO loop) with failure modes",
+      "checkpoint": "Active-learning campaign runner (Optuna/BO loop) with failure modes",
+      "live_tasks": {
+        "todo": [
+          "Complete checkpoint deliverable: Active-learning campaign runner (Optuna/BO loop) with failure modes",
+          "Create an artifact for Day 80 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "BO uses:",
+          "options": [
+            "Surrogate + acquisition",
+            "Only brute force",
+            "Only gradients"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Random search minimization.",
+          "starter": "import random\nbest=None\nfor _ in range(2000):\n    x=random.uniform(-5,5); y=random.uniform(-5,5)\n    f=(x-2)**2+(y+1)**2\n    if best is None or f<best[0]: best=(f,x,y)\nprint(round(best[0],4),round(best[1],2),round(best[2],2))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 81,
+      "track": "Ops",
+      "task": "SPC",
+      "note": "Control charts; signals.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 81 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "SPC detects:",
+          "options": [
+            "Drift/out-of-control",
+            "Logos",
+            "Noise only"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "3-sigma control limits.",
+          "starter": "import numpy as np\nvisc=np.array([1000,980,1025,990,1010,970])\nmu=visc.mean(); s=visc.std(ddof=1)\nprint(round(mu,1),round(mu-3*s,1),round(mu+3*s,1))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 82,
+      "track": "Ops",
+      "task": "Data pipelines",
+      "note": "Daily jobs; idempotence.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 82 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "SPC detects:",
+          "options": [
+            "Drift/out-of-control",
+            "Logos",
+            "Noise only"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "3-sigma control limits.",
+          "starter": "import numpy as np\nvisc=np.array([1000,980,1025,990,1010,970])\nmu=visc.mean(); s=visc.std(ddof=1)\nprint(round(mu,1),round(mu-3*s,1),round(mu+3*s,1))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 83,
+      "track": "Ops",
+      "task": "Docker basics",
+      "note": "Containerize a small CLI.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 83 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "SPC detects:",
+          "options": [
+            "Drift/out-of-control",
+            "Logos",
+            "Noise only"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "3-sigma control limits.",
+          "starter": "import numpy as np\nvisc=np.array([1000,980,1025,990,1010,970])\nmu=visc.mean(); s=visc.std(ddof=1)\nprint(round(mu,1),round(mu-3*s,1),round(mu+3*s,1))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 84,
+      "track": "Ops",
+      "task": "Cloud basics",
+      "note": "S3-like patterns; IAM placeholders.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 84 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "SPC detects:",
+          "options": [
+            "Drift/out-of-control",
+            "Logos",
+            "Noise only"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "3-sigma control limits.",
+          "starter": "import numpy as np\nvisc=np.array([1000,980,1025,990,1010,970])\nmu=visc.mean(); s=visc.std(ddof=1)\nprint(round(mu,1),round(mu-3*s,1),round(mu+3*s,1))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 85,
+      "track": "Ops",
+      "task": "HPC batch compute",
+      "note": "Slurm script patterns (concept).",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 85 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "SPC detects:",
+          "options": [
+            "Drift/out-of-control",
+            "Logos",
+            "Noise only"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "3-sigma control limits.",
+          "starter": "import numpy as np\nvisc=np.array([1000,980,1025,990,1010,970])\nmu=visc.mean(); s=visc.std(ddof=1)\nprint(round(mu,1),round(mu-3*s,1),round(mu+3*s,1))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 86,
+      "track": "Ops",
+      "task": "ML infra hygiene",
+      "note": "Versioning + artifact stores.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 86 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "SPC detects:",
+          "options": [
+            "Drift/out-of-control",
+            "Logos",
+            "Noise only"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "3-sigma control limits.",
+          "starter": "import numpy as np\nvisc=np.array([1000,980,1025,990,1010,970])\nmu=visc.mean(); s=visc.std(ddof=1)\nprint(round(mu,1),round(mu-3*s,1),round(mu+3*s,1))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 87,
+      "track": "Ops",
+      "task": "Noisy sensors",
+      "note": "Filtering; sensor faults.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 87 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "SPC detects:",
+          "options": [
+            "Drift/out-of-control",
+            "Logos",
+            "Noise only"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "3-sigma control limits.",
+          "starter": "import numpy as np\nvisc=np.array([1000,980,1025,990,1010,970])\nmu=visc.mean(); s=visc.std(ddof=1)\nprint(round(mu,1),round(mu-3*s,1),round(mu+3*s,1))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 88,
+      "track": "Ops",
+      "task": "Release rules",
+      "note": "Automated QC gates.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 88 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "SPC detects:",
+          "options": [
+            "Drift/out-of-control",
+            "Logos",
+            "Noise only"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "3-sigma control limits.",
+          "starter": "import numpy as np\nvisc=np.array([1000,980,1025,990,1010,970])\nmu=visc.mean(); s=visc.std(ddof=1)\nprint(round(mu,1),round(mu-3*s,1),round(mu+3*s,1))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 89,
+      "track": "Ops",
+      "task": "Dashboards",
+      "note": "Static report generation.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 89 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "SPC detects:",
+          "options": [
+            "Drift/out-of-control",
+            "Logos",
+            "Noise only"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "3-sigma control limits.",
+          "starter": "import numpy as np\nvisc=np.array([1000,980,1025,990,1010,970])\nmu=visc.mean(); s=visc.std(ddof=1)\nprint(round(mu,1),round(mu-3*s,1),round(mu+3*s,1))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 90,
+      "track": "Ops",
+      "task": "Checkpoint build (Ops dashboard + release rules + drift monitoring)",
+      "note": "Ops dashboard + release rules + drift monitoring",
+      "checkpoint": "Ops dashboard + release rules + drift monitoring",
+      "live_tasks": {
+        "todo": [
+          "Complete checkpoint deliverable: Ops dashboard + release rules + drift monitoring",
+          "Create an artifact for Day 90 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "SPC detects:",
+          "options": [
+            "Drift/out-of-control",
+            "Logos",
+            "Noise only"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "3-sigma control limits.",
+          "starter": "import numpy as np\nvisc=np.array([1000,980,1025,990,1010,970])\nmu=visc.mean(); s=visc.std(ddof=1)\nprint(round(mu,1),round(mu-3*s,1),round(mu+3*s,1))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 91,
+      "track": "Capstone",
+      "task": "Capstone spec",
+      "note": "Define lab-in-the-loop objectives and interfaces.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 91 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Lab-in-the-loop means:",
+          "options": [
+            "Closed loop model\u2194experiments",
+            "Static dataset",
+            "No measurements"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Pick best of 10 noisy evaluations.",
+          "starter": "import random\ndef measure(x): return -((x-1.7)**2)+random.gauss(0,0.02)\nxs=[random.uniform(-1,3) for _ in range(10)]\nys=[measure(x) for x in xs]\ni=max(range(len(xs)), key=lambda j: ys[j])\nprint(round(xs[i],3),round(ys[i],3))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 92,
+      "track": "Capstone",
+      "task": "Simulator",
+      "note": "Noisy ground truth + failure modes.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 92 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Lab-in-the-loop means:",
+          "options": [
+            "Closed loop model\u2194experiments",
+            "Static dataset",
+            "No measurements"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Pick best of 10 noisy evaluations.",
+          "starter": "import random\ndef measure(x): return -((x-1.7)**2)+random.gauss(0,0.02)\nxs=[random.uniform(-1,3) for _ in range(10)]\nys=[measure(x) for x in xs]\ni=max(range(len(xs)), key=lambda j: ys[j])\nprint(round(xs[i],3),round(ys[i],3))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 93,
+      "track": "Capstone",
+      "task": "Modeling",
+      "note": "Train surrogate models; uncertainty.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 93 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Lab-in-the-loop means:",
+          "options": [
+            "Closed loop model\u2194experiments",
+            "Static dataset",
+            "No measurements"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Pick best of 10 noisy evaluations.",
+          "starter": "import random\ndef measure(x): return -((x-1.7)**2)+random.gauss(0,0.02)\nxs=[random.uniform(-1,3) for _ in range(10)]\nys=[measure(x) for x in xs]\ni=max(range(len(xs)), key=lambda j: ys[j])\nprint(round(xs[i],3),round(ys[i],3))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 94,
+      "track": "Capstone",
+      "task": "Optimization",
+      "note": "BO loop to targets; constraints.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 94 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Lab-in-the-loop means:",
+          "options": [
+            "Closed loop model\u2194experiments",
+            "Static dataset",
+            "No measurements"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Pick best of 10 noisy evaluations.",
+          "starter": "import random\ndef measure(x): return -((x-1.7)**2)+random.gauss(0,0.02)\nxs=[random.uniform(-1,3) for _ in range(10)]\nys=[measure(x) for x in xs]\ni=max(range(len(xs)), key=lambda j: ys[j])\nprint(round(xs[i],3),round(ys[i],3))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 95,
+      "track": "Capstone",
+      "task": "Infra",
+      "note": "Docker + reproducible runs.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 95 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Lab-in-the-loop means:",
+          "options": [
+            "Closed loop model\u2194experiments",
+            "Static dataset",
+            "No measurements"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Pick best of 10 noisy evaluations.",
+          "starter": "import random\ndef measure(x): return -((x-1.7)**2)+random.gauss(0,0.02)\nxs=[random.uniform(-1,3) for _ in range(10)]\nys=[measure(x) for x in xs]\ni=max(range(len(xs)), key=lambda j: ys[j])\nprint(round(xs[i],3),round(ys[i],3))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 96,
+      "track": "Capstone",
+      "task": "Tracking",
+      "note": "Artifacts + metrics (concept).",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 96 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Lab-in-the-loop means:",
+          "options": [
+            "Closed loop model\u2194experiments",
+            "Static dataset",
+            "No measurements"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Pick best of 10 noisy evaluations.",
+          "starter": "import random\ndef measure(x): return -((x-1.7)**2)+random.gauss(0,0.02)\nxs=[random.uniform(-1,3) for _ in range(10)]\nys=[measure(x) for x in xs]\ni=max(range(len(xs)), key=lambda j: ys[j])\nprint(round(xs[i],3),round(ys[i],3))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 97,
+      "track": "Capstone",
+      "task": "HPC/Cloud",
+      "note": "Batch runs; sweeps.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 97 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Lab-in-the-loop means:",
+          "options": [
+            "Closed loop model\u2194experiments",
+            "Static dataset",
+            "No measurements"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Pick best of 10 noisy evaluations.",
+          "starter": "import random\ndef measure(x): return -((x-1.7)**2)+random.gauss(0,0.02)\nxs=[random.uniform(-1,3) for _ in range(10)]\nys=[measure(x) for x in xs]\ni=max(range(len(xs)), key=lambda j: ys[j])\nprint(round(xs[i],3),round(ys[i],3))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 98,
+      "track": "Capstone",
+      "task": "Docs",
+      "note": "Quickstart + examples.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 98 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Lab-in-the-loop means:",
+          "options": [
+            "Closed loop model\u2194experiments",
+            "Static dataset",
+            "No measurements"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Pick best of 10 noisy evaluations.",
+          "starter": "import random\ndef measure(x): return -((x-1.7)**2)+random.gauss(0,0.02)\nxs=[random.uniform(-1,3) for _ in range(10)]\nys=[measure(x) for x in xs]\ni=max(range(len(xs)), key=lambda j: ys[j])\nprint(round(xs[i],3),round(ys[i],3))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 99,
+      "track": "Capstone",
+      "task": "Hardening",
+      "note": "Tests + CI.",
+      "checkpoint": null,
+      "live_tasks": {
+        "todo": [
+          "Create an artifact for Day 99 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Lab-in-the-loop means:",
+          "options": [
+            "Closed loop model\u2194experiments",
+            "Static dataset",
+            "No measurements"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Pick best of 10 noisy evaluations.",
+          "starter": "import random\ndef measure(x): return -((x-1.7)**2)+random.gauss(0,0.02)\nxs=[random.uniform(-1,3) for _ in range(10)]\nys=[measure(x) for x in xs]\ni=max(range(len(xs)), key=lambda j: ys[j])\nprint(round(xs[i],3),round(ys[i],3))",
+          "check_contains": ""
+        }
+      }
+    },
+    {
+      "day": 100,
+      "track": "Capstone",
+      "task": "Checkpoint build (Capstone demo: lab-in-the-loop simulator + reproducible pipeline)",
+      "note": "Capstone demo: lab-in-the-loop simulator + reproducible pipeline",
+      "checkpoint": "Capstone demo: lab-in-the-loop simulator + reproducible pipeline",
+      "live_tasks": {
+        "todo": [
+          "Complete checkpoint deliverable: Capstone demo: lab-in-the-loop simulator + reproducible pipeline",
+          "Create an artifact for Day 100 (script/notebook/config) and commit it to git.",
+          "Write a short README note: assumptions, units, and reproducibility steps.",
+          "Add one automated check (test, schema validation, or lint) related to today\u2019s work."
+        ],
+        "quiz": {
+          "question": "Lab-in-the-loop means:",
+          "options": [
+            "Closed loop model\u2194experiments",
+            "Static dataset",
+            "No measurements"
+          ],
+          "answer_index": 0
+        },
+        "code": {
+          "prompt": "Pick best of 10 noisy evaluations.",
+          "starter": "import random\ndef measure(x): return -((x-1.7)**2)+random.gauss(0,0.02)\nxs=[random.uniform(-1,3) for _ in range(10)]\nys=[measure(x) for x in xs]\ni=max(range(len(xs)), key=lambda j: ys[j])\nprint(round(xs[i],3),round(ys[i],3))",
+          "check_contains": ""
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>100 Days of Python for Siloxane Chemistry (Interactive) — Day 056</title><link rel="stylesheet" href="assets/styles.css"/></head>
+<body>
+<header><div class="wrap">
+<div class="row" style="justify-content:space-between;align-items:flex-end;">
+<div><div class="badge">Properties</div><h1 class="h1" style="margin-top:8px;">Day 056: Unit-safe calculators</h1><p class="sub">pint patterns (concept).</p></div>
+<div style="text-align:right;"><a class="btn" href="index.html">← Index</a> <a class="btn" href="day-055.html">Prev</a> <a class="btn primary" href="day-057.html">Next</a>
+<div style="margin-top:10px;"><button class="btn" id="toggleDone">Mark done</button></div><small id="doneHint"></small></div>
+</div></div></header>
+<main class="wrap">
+<div class="card"><div class="pad"><h2 style="margin:0 0 8px;">Checklist</h2><ul class="todo" id="todo"></ul>
+<div class="row" style="margin-top:10px;"><button class="btn" id="markAll">Mark all</button><button class="btn" id="clearAll">Clear</button></div>
+<small>Saved in your browser.</small></div></div>
+
+<div class="card" style="margin-top:14px;"><div class="pad"><h2 style="margin:0 0 8px;">Quick quiz</h2><div id="quiz"></div>
+<div class="row" style="margin-top:10px;"><button class="btn primary" id="gradeQuiz">Grade</button><span id="quizResult" class="badge"></span></div></div></div>
+
+<div class="card" style="margin-top:14px;"><div class="pad"><h2 style="margin:0 0 8px;">Live code task (Python in your browser)</h2>
+<p class="sub" style="margin-top:0;">BOM cost per kg.</p>
+<div class="row" style="justify-content:space-between;align-items:center;"><span class="badge">Powered by Pyodide (runs locally)</span><button class="btn primary" id="loadPy">Load Python</button></div>
+<div style="margin-top:10px;"><textarea id="code"></textarea></div>
+<div class="row" style="margin-top:10px;"><button class="btn primary" id="runCode">Run</button><button class="btn" id="resetCode">Reset</button><span id="codeStatus" class="badge"></span></div>
+<pre id="output"></pre><small>First load can take a bit. No server; everything runs on-device.</small>
+</div></div>
+</main>
+
+<script src="assets/theme.js"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.25.1/full/pyodide.js"></script>
+<script>
+const DAY={"day": 56, "track": "Properties", "task": "Unit-safe calculators", "note": "pint patterns (concept).", "checkpoint": null, "live_tasks": {"todo": ["Create an artifact for Day 56 (script/notebook/config) and commit it to git.", "Write a short README note: assumptions, units, and reproducibility steps.", "Add one automated check (test, schema validation, or lint) related to today\u2019s work."], "quiz": {"question": "Hard constraint means:", "options": ["Must be satisfied", "Optional", "Ignored"], "answer_index": 0}, "code": {"prompt": "BOM cost per kg.", "starter": "form={'PDMS':0.9,'Filler':0.09,'Catalyst':0.01}\ncost={'PDMS':6.0,'Filler':2.0,'Catalyst':120.0}\nprint(round(sum(form[k]*cost[k] for k in form),2))", "check_contains": "."}}};
+const STORAGE_DONE="siloxane100days_done_v2";
+const STORAGE_TODO="siloxane100days_todo_v2";
+const STORAGE_QUIZ="siloxane100days_quiz_v2";
+const STORAGE_CODE="siloxane100days_code_v2";
+
+function loadSet(k){try{const r=localStorage.getItem(k);return r?new Set(JSON.parse(r)):new Set();}catch(e){return new Set();}}
+function saveSet(k,s){localStorage.setItem(k,JSON.stringify(Array.from(s).sort((a,b)=>a-b)));}
+function todoKey(){return STORAGE_TODO+"_"+DAY.day;}
+function quizKey(){return STORAGE_QUIZ+"_"+DAY.day;}
+function codeKey(){return STORAGE_CODE+"_"+DAY.day;}
+
+function loadTodo(){try{const r=localStorage.getItem(todoKey());return r?JSON.parse(r):Array(DAY.live_tasks.todo.length).fill(false);}catch(e){return Array(DAY.live_tasks.todo.length).fill(false);}}
+function saveTodo(s){localStorage.setItem(todoKey(),JSON.stringify(s));}
+
+function renderTodo(){const ul=document.getElementById("todo");ul.innerHTML="";const st=loadTodo();
+DAY.live_tasks.todo.forEach((t,i)=>{const li=document.createElement("li");const cb=document.createElement("input");cb.type="checkbox";cb.checked=!!st[i];
+cb.onchange=()=>{const s=loadTodo();s[i]=cb.checked;saveTodo(s);};const lab=document.createElement("span");lab.style.marginLeft="10px";lab.textContent=t;
+li.appendChild(cb);li.appendChild(lab);ul.appendChild(li);});}
+
+function renderQuiz(){const q=DAY.live_tasks.quiz;const c=document.getElementById("quiz");c.innerHTML="";
+const p=document.createElement("p");p.textContent=q.question;c.appendChild(p);
+let saved=null;try{const r=localStorage.getItem(quizKey());saved=r?JSON.parse(r):null;}catch(e){}
+q.options.forEach((opt,idx)=>{const row=document.createElement("div");row.style.margin="8px 0";
+const rb=document.createElement("input");rb.type="radio";rb.name="quiz";rb.value=String(idx);if(saved && saved.selected_index===idx) rb.checked=true;
+rb.onchange=()=>{localStorage.setItem(quizKey(),JSON.stringify({selected_index:idx}));};
+const lab=document.createElement("span");lab.style.marginLeft="10px";lab.textContent=opt;
+row.appendChild(rb);row.appendChild(lab);c.appendChild(row);});}
+
+function doneUI(){const done=loadSet(STORAGE_DONE);const b=document.getElementById("toggleDone");const h=document.getElementById("doneHint");
+if(done.has(DAY.day)){b.textContent="Mark not done";h.textContent="Marked done ✔";} else {b.textContent="Mark done";h.textContent="";}}
+document.getElementById("toggleDone").onclick=()=>{const done=loadSet(STORAGE_DONE);done.has(DAY.day)?done.delete(DAY.day):done.add(DAY.day);saveSet(STORAGE_DONE,done);doneUI();};
+document.getElementById("markAll").onclick=()=>{saveTodo(Array(DAY.live_tasks.todo.length).fill(true));renderTodo();};
+document.getElementById("clearAll").onclick=()=>{saveTodo(Array(DAY.live_tasks.todo.length).fill(false));renderTodo();};
+document.getElementById("gradeQuiz").onclick=()=>{const q=DAY.live_tasks.quiz;let sel=null;document.querySelectorAll('input[name="quiz"]').forEach(rb=>{if(rb.checked) sel=parseInt(rb.value);});
+const out=document.getElementById("quizResult");if(sel===null){out.textContent="Pick an answer";return;}
+const ok=sel===q.answer_index;out.textContent=ok?"Correct":"Not quite";out.style.borderColor=ok?"rgba(52,211,153,.35)":"rgba(251,113,133,.35)";};
+
+let py=null;
+async function ensurePy(){if(py) return py;document.getElementById("codeStatus").textContent="Loading Python...";py=await loadPyodide();document.getElementById("codeStatus").textContent="Python ready";return py;}
+document.getElementById("loadPy").onclick=async()=>{await ensurePy();};
+function loadCode(){const r=localStorage.getItem(codeKey());return r?r:DAY.live_tasks.code.starter;}
+function saveCode(s){localStorage.setItem(codeKey(),s);}
+const codeEl=document.getElementById("code");codeEl.value=loadCode();codeEl.addEventListener("input",()=>saveCode(codeEl.value));
+document.getElementById("resetCode").onclick=()=>{codeEl.value=DAY.live_tasks.code.starter;saveCode(codeEl.value);document.getElementById("output").textContent="";document.getElementById("codeStatus").textContent="";};
+document.getElementById("runCode").onclick=async()=>{const st=document.getElementById("codeStatus");const out=document.getElementById("output");st.textContent="Running...";out.textContent="";
+try{const py=await ensurePy();py.setStdout({batched:(s)=>{out.textContent+=s;}});py.setStderr({batched:(s)=>{out.textContent+=s;}});await py.runPythonAsync(codeEl.value);
+const chk=DAY.live_tasks.code.check_contains||"";if(chk && out.textContent.indexOf(chk)!==-1){st.textContent="Looks good ✔";st.style.borderColor="rgba(52,211,153,.35)";} else {st.textContent="Ran (review output)";st.style.borderColor="rgba(255,255,255,.08)";}
+}catch(e){st.textContent="Error";st.style.borderColor="rgba(251,113,133,.35)";out.textContent+="\n"+String(e);}};
+renderTodo();renderQuiz();doneUI();
+</script></body></html>
