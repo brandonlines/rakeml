@@ -1,6 +1,6 @@
-# RAKE ML Website
+# Cervera Website
 
-Marketing site for RAKE ML: predictive intelligence for roofing risk, insurers, contractors, and asset managers.
+Marketing site for Cervera and its first product, RAKE: predictive intelligence for roofing risk, insurers, contractors, and asset managers.
 
 ## Live Site
 
@@ -20,8 +20,8 @@ Open:
 
 ## Project Structure
 
-- `index.html`: Main RAKE ML homepage
-- `rake-ml-next.html`: Alternate/backup version of the RAKE ML page
+- `index.html`: Main Cervera homepage (RAKE product positioning)
+- `rake-ml-next.html`: Alternate/backup version of the RAKE page
 - `.github/workflows/pages.yml`: GitHub Pages deployment workflow
 
 ## Theming
