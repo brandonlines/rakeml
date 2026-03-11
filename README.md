@@ -1,6 +1,6 @@
-# Cervera Website
+# Aegis Asset Intelligence Website
 
-Marketing site for Cervera and its first product, RAKE: predictive intelligence for roofing risk, insurers, contractors, and asset managers.
+Marketing site for Aegis Asset Intelligence and its first product, RAKE: predictive intelligence for roofing risk, insurers, contractors, and asset managers.
 
 ## Live Site
 
@@ -20,7 +20,7 @@ Open:
 
 ## Project Structure
 
-- `index.html`: Main Cervera homepage (RAKE product positioning)
+- `index.html`: Main Aegis Asset Intelligence homepage (RAKE product positioning)
 - `rake-ml-next.html`: Alternate/backup version of the RAKE page
 - `.github/workflows/pages.yml`: GitHub Pages deployment workflow
 
